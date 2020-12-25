@@ -26,14 +26,14 @@ brew install fd
 
 Set values to the following variables (use `[x]` button in Alfred's Workflow Setting Panel):
 
-| Variable       | Explanation                                             |
-| -------------- | ------------------------------------------------------- |
-|`fd_path`       | Path to `fd` command (default: `/usr/local/bin/fd`)     |
-|`fzf_path`      | Path to `fzf` command (default: `/usr/local/bin/fzf`)   |
-|`num_candidates`| Number of candidate files/directories shown in Alfred   |
-|`search_home`   | Home directory from which recursive search is conducted |
+| Variable       | Explanation                                                        |
+| -------------- | ------------------------------------------------------------------ |
+|`fd_path`       | Path to `fd` command (default: `/usr/local/bin/fd`)                |
+|`fzf_path`      | Path to `fzf` command (default: `/usr/local/bin/fzf`)              |
+|`num_candidates`| Number of candidate files/directories shown in Alfred (default: 9) |
+|`search_home`   | Home directory from which recursive search is conducted            |
 
-You can check paths to `fd` and `fz` once these have been installed as follows:
+You can check paths to `fd` and `fz` as follows once these have been installed:
 
 ```shell
 > which fd
