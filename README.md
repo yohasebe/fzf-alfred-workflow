@@ -46,6 +46,8 @@ You can check paths to `fd` and `fz` as follows once these have been installed:
 
 ## Example Usage
 
+Suppose you have an mp3 music folder and Metallica's *Master of Puppets* album in it, just for instance.
+
 ### File/Directory Search
 
 `fzf metallica puppets`
