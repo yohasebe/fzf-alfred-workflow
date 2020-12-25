@@ -91,8 +91,7 @@ Use `^d` directive to search directories only.
 ### Ways of Invocation
 
 - Using keyword: `fzf`
-- Using hotkey: `^⇧Space` (default)
+- Using hotkey
 - Using file action
 - Setup fallback search
-
 
