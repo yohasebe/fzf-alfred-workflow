@@ -1,6 +1,6 @@
 # fzf-alfred-workflow
 
-An Alfred workflow fo fuzzy find files/directories using fzf and fd.
+An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using fzf and fd.
 
 ![screenshot](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/files/screenshot.gif)
 
@@ -12,6 +12,7 @@ An Alfred workflow fo fuzzy find files/directories using fzf and fd.
 
 ### Prerequisites
 
+- [Alfred Powerpack](https://www.alfredapp.com/powerpack/)
 - [fzf](https://github.com/junegunn/fzf): a general-purpose command-line fuzzy finder
 - [fd](https://github.com/sharkdp/fd): a simple, fast and user-friendly alternative to *find*
 
