@@ -4,7 +4,7 @@ An Alfred workflow fo fuzzy find files/directories using fzf and fd.
 
 ## Downloads
 
-[https://github.com/yohasebe/fzf-alfred-workflow/releases]()
+- v0.1 [https://github.com/yohasebe/fzf-alfred-workflow/releases](https://github.com/yohasebe/fzf-alfred-workflow/releases/download/0.1/fzf-alfred-workfow.alfredworkflow)
 
 ## Installation
 
@@ -41,7 +41,7 @@ You can check paths to `fd` and `fz` once these have been installed as follows:
 # /usr/local/bin/fzf
 ```
 
-### Examples
+### Example Usage
 
 **File/Directory Search**
 
