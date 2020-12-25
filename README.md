@@ -15,7 +15,7 @@ An Alfred workflow fo fuzzy find files/directories using fzf and fd.
 
 Installation using [homebrew](https://brew.sh/)
 
-```shell```
+```shell
 brew install fzf
 brew install fd
 ```
@@ -33,7 +33,7 @@ Set values to the following variables (use `[x]` button in Alfred's Workflow Set
 
 You can check paths to `fd` and `fz` once these have been installed as follows:
 
-```shell```
+```shell
 > which fd
 # /usr/local/bin/fd
 
