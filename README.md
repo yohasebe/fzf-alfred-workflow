@@ -11,7 +11,7 @@ An Alfred workflow fo fuzzy find files/directories using fzf and fd.
 ### Prerequisites
 
 - [fzf](https://github.com/junegunn/fzf): a general-purpose command-line fuzzy finder
-- [fd](https://github.com/sharkdp/fd): a simple, fast and user-friendly alternative to "find"
+- [fd](https://github.com/sharkdp/fd): a simple, fast and user-friendly alternative to *find*
 
 Installation using [homebrew](https://brew.sh/)
 
