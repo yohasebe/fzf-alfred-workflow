@@ -78,7 +78,7 @@ Use `^f` directive to search files only.
 > /music/**metallica**/master-of-**puppets**/05-disposable-heroes.mp3 \
 > /music/**metallica**/master-of-**puppets**/06-leper-messiah.mp3 \
 > /music/**metallica**/master-of-**puppets**/07-orion.mp3 \
-> /music/**metallica**/master-of-**puppets**/08-damage-inc.mp3 \
+> /music/**metallica**/master-of-**puppets**/08-damage-inc.mp3
 
 **Directory Only Search**
 
