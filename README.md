@@ -41,9 +41,9 @@ You can check paths to `fd` and `fz` once these have been installed as follows:
 # /usr/local/bin/fzf
 ```
 
-### Example Usage
+## Example Usage
 
-**File/Directory Search**
+### File/Directory Search
 
 `fzf metallica puppets`
 
@@ -65,7 +65,7 @@ You can narrow them down by adding search keys. Again, the order of search keys 
 
 > /music/**metallica**/master-of-**puppets**/08-**damage**-inc.mp3
 
-**File Only Search**
+### File Only Search
 
 Use `^f` directive to search files only.
 
@@ -80,7 +80,7 @@ Use `^f` directive to search files only.
 > /music/**metallica**/master-of-**puppets**/07-orion.mp3 \
 > /music/**metallica**/master-of-**puppets**/08-damage-inc.mp3
 
-**Directory Only Search**
+### Directory Only Search
 
 Use `^d` directive to search directories only.
 
@@ -88,7 +88,7 @@ Use `^d` directive to search directories only.
 
 > /music/**metallica**/master-of-**puppets**/
 
-### Ways of Invocation
+## Ways of Invocation
 
 - Using keyword: `fzf`
 - Using hotkey
