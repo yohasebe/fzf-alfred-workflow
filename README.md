@@ -1,4 +1,4 @@
-# <span style="color:#f70069; background-color:#3f3f3f">&nbsp;&gt;&nbsp;</span> fzf-alfred-workflow
+# **>** fzf-alfred-workflow
 
 An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using fzf and fd.
 
