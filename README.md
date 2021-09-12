@@ -1,4 +1,4 @@
-# fzf-alfred-workflow
+# <span style="color:#f70069; background-color:#3f3f3f">&nbsp;&gt;&nbsp;</span> fzf-alfred-workflow
 
 An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using fzf and fd.
 
@@ -6,7 +6,7 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 ## Downloads
 
-- [fzf-alfred-workflow v0.1](https://github.com/yohasebe/fzf-alfred-workflow/releases/download/0.1/fzf-alfred-workfow.alfredworkflow)
+- [fzf-alfred-workflow v0.1.1](https://github.com/yohasebe/fzf-alfred-workflow/releases/download/0.1.1/fzf-alfred-workfow.alfredworkflow)
 
 ## Installation
 
@@ -27,12 +27,12 @@ brew install fd
 
 Set values to the following variables (use `[x]` button in Alfred's Workflow Setting Panel):
 
-| Variable       | Explanation                                                        |
-| -------------- | ------------------------------------------------------------------ |
-|`fd_path`       | Path to `fd` command (default: `/usr/local/bin/fd`)                |
-|`fzf_path`      | Path to `fzf` command (default: `/usr/local/bin/fzf`)              |
-|`num_candidates`| Number of candidate files/directories shown in Alfred (default: 9) |
-|`search_home`   | Home directory from which recursive search is conducted            |
+| Variable       | Explanation                                                              |
+| -------------- | ------------------------------------------------------------------------ |
+|`fd_path`       | Path to `fd` command (default: `/usr/local/bin/fd`)                      |
+|`fzf_path`      | Path to `fzf` command (default: `/usr/local/bin/fzf`)                    |
+|`num_candidates`| Number of candidate files/directories shown in Alfred (default: 9)       |
+|`search_paths`  | Directories from which recursive searches are conducted (`dir1; dir2 ...`)|
 
 You can check paths to `fd` and `fz` as follows once these have been installed:
 
