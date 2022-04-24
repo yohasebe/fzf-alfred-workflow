@@ -5,7 +5,7 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 ![screenshot](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/files/screenshot.gif)
 
 > **NOTE** <br />
-> If the searche immediately after OS startup is a bit slow, opening your preferred terminal application (Terminal, iTerm2, etc.) before launching this workflow will greatly reduce the delay. I recommend adding the terminal application to "Login Items" of the MacOS settings.
+> If a search immediately after OS startup is a bit slow, opening your preferred terminal application (Terminal, iTerm2, etc.) beforehand will greatly reduce the delay. I recommend adding the terminal application to "Login Items" of the MacOS settings.
 
 ## Downloads
 
