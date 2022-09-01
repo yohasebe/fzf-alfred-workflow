@@ -9,7 +9,7 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 ## Downloads
 
-- [fzf-alfred-workflow v0.1.1](https://github.com/yohasebe/fzf-alfred-workflow/releases/download/0.1.1/fzf-alfred-workfow.alfredworkflow)
+- [fzf-alfred-workflow v0.1.1](https://github.com/yohasebe/fzf-alfred-workflow/releases/download/0.1.1a/fzf-alfred-workfow.alfredworkflow)
 
 ## Installation
 
