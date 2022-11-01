@@ -2,6 +2,8 @@
 
 An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using fzf and fd.
 
+*You can search for files and directories by specifying paths and filename fragments in any order.*
+
 ![screenshot](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/files/screenshot.gif)
 
 ## Downloads
