@@ -4,9 +4,6 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 ![screenshot](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/files/screenshot.gif)
 
-> **NOTE** <br />
-> If a search immediately after OS startup is a bit slow, opening your preferred terminal application (Terminal, iTerm2, etc.) beforehand will greatly reduce the delay. I recommend adding the terminal application to "Login Items" of the MacOS settings.
-
 ## Downloads
 
 - [fzf-alfred-workflow v0.1.1](https://github.com/yohasebe/fzf-alfred-workflow/releases/download/0.1.1a/fzf-alfred-workfow.alfredworkflow)
@@ -50,6 +47,20 @@ You can check paths to `fd` and `fz` as follows once these have been installed:
 ## Example Usage
 
 Suppose you have an mp3 music folder and Metallica's *Master of Puppets* album in it, just for instance.
+
+```
+music
+└── metallica
+    └── master-of-puppets
+        ├── 01-battery.mp3
+        ├── 02-master-of-puppets.mp3
+        ├── 03-the-thing-that-should-not-be.mp3
+        ├── 04-welcome-home.mp3
+        ├── 05-disposable-heroes.mp3
+        ├── 06-leper-messiah.mp3
+        ├── 07-orion.mp3
+        └── 08-damage-inc.mp3
+```
 
 ### File/Directory Search
 
@@ -102,4 +113,3 @@ Use `^d` directive to search directories only.
 - Using hotkey
 - Using file action
 - Setup fallback search
-
