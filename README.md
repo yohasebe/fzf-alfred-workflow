@@ -8,13 +8,13 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 ## Downloads
 
-Current Version: `1.0.0`
+Current Version: `1.0.1`
 
 [⤓ Download Workflow](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
 
 **Change Log**
 
-- `1.0.0`: User configuration instead of environment variables adopted for setting options 
+- `1.0.1`: User configuration instead of environment variables adopted for setting options 
 
 ## Installation
 
@@ -40,7 +40,7 @@ Set values to the following options in `User Configuration`:
 |`fzf_path`      | Path to `fzf` command (default: `/opt/homebrew/bin/fzf`)             |
 |`fd_path`       | Path to `fd` command (default: `/opt/homebrew/bin/fd`)               |
 |`num_candidates`| Number of candidate files/directories shown in Alfred (default: 100) |
-|`search_paths`  | Directory from which recursive searches are conducted __\*__         |
+|`search_path`   | Directory from which recursive fzf searches are conducted __\*__     |
 
 __\*__ Search directory can be also specified dynamically in [Universal Action](https://www.alfredapp.com/universal-actions/).
 
@@ -59,6 +59,30 @@ You can check paths to `fzf` and `fd` as follows once these have been installed:
 # When installing on Intel Model with homebrew 
 #/usr/local/bin/fd
 ```
+
+## Ways of Invocation
+
+**1. Using Keyword**
+
+Type in `fzf` and search keys
+
+**2. Using User-specified Hotkey**
+
+Setup: Preferences → Workflows → fzf-alfred-workflow → Double click "Hotkey"
+
+Press the hotkey specified and type in search keys
+
+**3. Fallback Search**
+
+Setup: Preferences → Default Results → Setup fallback results → Add Workflow Trigger "FZF Search"
+
+Type in search keys and select "FZF Search"
+
+**4. Universal Action**
+
+Setup: Preferences → Universal Actions → Actions → Check Workflow File Actions
+
+Select a folder in the Finder and enter the search key. The selected folder becomes the search path temporarily overriding the search path specified in user configuration.
 
 ## Example Usage
 
@@ -108,13 +132,6 @@ Use `^d` directive to search directories only.
 `fzf metallica puppets ^d`
 
 > /music/**metallica**/master-of-**puppets**/
-
-## Ways of Invocation
-
-- Using Keyword: `fzf`
-- Using User-specified Hotkey
-- Setup Fallback Search (**FZF Search**)
-- Universal Action (**FZF Search from Here**)
 
 ## Author
 
