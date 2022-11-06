@@ -2,7 +2,7 @@
 
 <img src='./files/fzf-alfred.png' style='width:500px;'/>
 
-An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using fzf and fd.
+An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using fzf and fd. Search directory can be set in User Configuration or specified dynamically in Universal Action.
 
 ![screenshot](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/files/screenshot.gif)
 
@@ -40,7 +40,9 @@ Set values to the following options in `User Configuration`:
 |`fzf_path`      | Path to `fzf` command (default: `/opt/homebrew/bin/fzf`)             |
 |`fd_path`       | Path to `fd` command (default: `/opt/homebrew/bin/fd`)               |
 |`num_candidates`| Number of candidate files/directories shown in Alfred (default: 100) |
-|`search_paths`  | Directory from which recursive searches are conducted                |
+|`search_paths`  | Directory from which recursive searches are conducted __\*__         |
+
+__\*__ Search directory can be also specified dynamically in Universal Action.
 
 You can check paths to `fzf` and `fd` as follows once these have been installed:
 
@@ -103,10 +105,10 @@ Use `^d` directive to search directories only.
 
 ## Ways of Invocation
 
-- Using keyword: `fzf`
-- Using hotkey
-- Using file action
-- Setup fallback search
+- Using Keyword: `fzf`
+- Using User-specified Hotkey
+- Setup Fallback Search (**FZF Search**)
+- Universal Action (**FZF Search from Here**)
 
 ## Author
 
