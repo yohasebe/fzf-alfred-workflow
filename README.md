@@ -1,6 +1,10 @@
 # <span><img src='./files/fzf-alfred-icon.png' style='height:1em;'/></span> fzf-alfred-workflow
 
-An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using [fzf](https://github.com/junegunn/fzf) and [fd](https://github.com/sharkdp/fd). You can enter search keys that partially match file/directory paths *in any order*. The search directory can be set in user configuration or specified dynamically in [universal action](https://www.alfredapp.com/universal-actions/).
+An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using [fzf](https://github.com/junegunn/fzf) and [fd](https://github.com/sharkdp/fd).
+
+*You can enter search keys that partially match file/directory paths in any order*.
+
+The search directory can be set in user configuration or specified dynamically in [universal action](https://www.alfredapp.com/universal-actions/).
 
 <img src='./files/fzf-alfred-screenshot.png' style='width:500px;'/>
 
