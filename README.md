@@ -1,8 +1,8 @@
 # <span><img src='./files/fzf-alfred-icon.png' style='height:1em;'/></span> fzf-alfred-workflow
 
-<img src='./files/fzf-alfred-screenshot.png' style='width:500px;'/>
-
 An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using [fzf](https://github.com/junegunn/fzf) and [fd](https://github.com/sharkdp/fd). Search directory can be set in User Configuration or specified dynamically in [Universal Action](https://www.alfredapp.com/universal-actions/).
+
+<img src='./files/fzf-alfred-screenshot.png' style='width:500px;'/>
 
 ![screenshot](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/files/screenshot.gif)
 
