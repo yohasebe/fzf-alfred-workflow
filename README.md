@@ -1,6 +1,6 @@
 # 🔍 fzf-alfred-workflow
 
-<img src='./files/fzf-alfred.png' style='width:500px;'/>
+<img src='files/fzf-alfred.png' style='width:500px;'/>
 
 An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using fzf and fd.
 
