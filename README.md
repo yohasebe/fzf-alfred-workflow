@@ -1,4 +1,4 @@
-# <span><img src='./files/fzf-alfred-icon.png' style='height:1em;'/></span> fzf-alfred-workflow
+# <span><img src='./files/fzf-alfred-icon.png' style='height:1.5em;'/></span> fzf-alfred-workflow
 
 An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using [fzf](https://github.com/junegunn/fzf) and [fd](https://github.com/sharkdp/fd).
 
