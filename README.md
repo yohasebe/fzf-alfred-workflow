@@ -2,7 +2,7 @@
 
 An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using [fzf](https://github.com/junegunn/fzf) and [fd](https://github.com/sharkdp/fd).
 
-You can enter **search keys** that partially match file/directory paths ***in any order***.
+You can enter **search keys** that partially match file/directory paths **in any order**.
 
 The search directory can be set in user configuration or specified dynamically in [universal action](https://www.alfredapp.com/universal-actions/).
 
