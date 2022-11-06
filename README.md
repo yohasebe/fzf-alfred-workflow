@@ -48,10 +48,16 @@ You can check paths to `fzf` and `fd` as follows once these have been installed:
 
 ```shell
 > which fzf
+# When installing on Apple Sillicon Model with homebrew 
 #/opt/homebrew/bin/fzf 
+# When installing on Intel Model with homebrew 
+#/usr/local/bin/fzf 
 
 > which fd
+# When installing on Apple Sillicon Model with homebrew 
 #/opt/homebrew/bin/fd 
+# When installing on Intel Model with homebrew 
+#/usr/local/bin/fd
 ```
 
 ## Example Usage
