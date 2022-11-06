@@ -14,7 +14,7 @@ Current Version: `1.0.0`
 
 **Change Log**
 
-- `0.2.0`: User Configuration instead of Environment Variables are used
+- `1.0.0`: User Configuration instead of Environment Variables are used
 
 ## Installation
 
