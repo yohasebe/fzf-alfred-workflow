@@ -12,12 +12,14 @@ The search directory can be set in user configuration or specified dynamically i
 
 ## Downloads
 
-Current Version: `1.0.1`
+Current Version: `1.0.2`
 
-[⤓ Download Workflow](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
+[⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
+[⤓ Download Workflow for Alfred 4](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-4-workfow.alfredworkflow)
 
 **Change Log**
 
+- `1.0.2`: "Search Path" is set default to `~` (home directory)
 - `1.0.1`: User configuration instead of environment variables adopted for setting options 
 
 ## Installation
@@ -37,7 +39,7 @@ brew install fd
 
 ### Setting Up
 
-Set values to the following options in `User Configuration`:
+Set values to the following options in `User Configuration` (Alfred 5) or `Environmental Variables`:
 
 | Variable       | Explanation                                                          |
 | -------------- | ---------------------------------------------------------------------|
