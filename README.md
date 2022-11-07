@@ -14,8 +14,8 @@ The search directory can be set in user configuration or specified dynamically i
 
 Current Version: `1.0.2`
 
-[⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
-[⤓ Download Workflow for Alfred 4](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-4-workfow.alfredworkflow)
+- [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
+- [⤓ Download Workflow for Alfred 4](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-4-workfow.alfredworkflow)
 
 **Change Log**
 
