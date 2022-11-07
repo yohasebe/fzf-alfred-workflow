@@ -20,7 +20,7 @@ Current Version: `1.0.2`
 **Change Log**
 
 - `1.0.2`: "Search Path" is set default to `~` (home directory)
-- `1.0.1`: User configuration instead of environment variables adopted for setting options 
+- `1.0.1`: User configuration made available for setting options 
 
 ## Installation
 
@@ -39,7 +39,7 @@ brew install fd
 
 ### Setting Up
 
-Set values to the following options in `User Configuration` (Alfred 5) or `Environmental Variables`:
+Set values to the following options in `User Configuration` (Alfred 5) or `Environmental Variables` (Alfred 4):
 
 | Variable       | Explanation                                                          |
 | -------------- | ---------------------------------------------------------------------|
