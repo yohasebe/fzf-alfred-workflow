@@ -139,6 +139,9 @@ Use `^d` directive to search directories only.
 
 > /music/**metallica**/master-of-**puppets**/
 
+## Acknowledgments
+
+The icon of this workflow <span><img src='./files/fzf-alfred-icon.png' style='height:24px;'/></span> is used under [Simplified Pixabay License](https://pixabay.com/ja/service/license/)
 ## Author
 
 Yoichiro Hasebe (<yohasebe@gmail.com>)
