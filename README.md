@@ -42,13 +42,13 @@ brew install fd
 
 Set values to the following options in `User Configuration` (Alfred 5) or `Environmental Variables` (Alfred 4):
 
-| Variable       | Explanation                                                          |
-| -------------- | ---------------------------------------------------------------------|
-|`fzf_path`      | Path to `fzf` command (default: `/opt/homebrew/bin/fzf`)             |
-|`fd_path`       | Path to `fd` command (default: `/opt/homebrew/bin/fd`)               |
-|`num_candidates`| Number of candidate files/directories shown in Alfred (default: 100) |
-|`search_path`   | Directory from which recursive fzf searches are conducted __\*__     |
-|`memorize`      | If checked, Alfred will manage the order of items according to usage |
+| Variable         | Explanation                                                                        |
+| ---------------- | ---------------------------------------------------------------------------------- |
+| `fzf_path`       | Path to `fzf` command (default: `/opt/homebrew/bin/fzf`)                           |
+| `fd_path`        | Path to `fd` command (default: `/opt/homebrew/bin/fd`)                             |
+| `num_candidates` | Number of candidate files/directories shown in Alfred (default: 100)               |
+| `search_path`    | Directory from which recursive fzf searches are conducted __\*__                   |
+| `memorize`       | If checked or set `true`, Alfred will manage the order of items according to usage |
 
 __\*__ Search directory can be also specified dynamically in [Universal Action](https://www.alfredapp.com/universal-actions/).
 
