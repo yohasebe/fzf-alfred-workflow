@@ -4,9 +4,9 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 ## Features
 
-- ⚡️ **Fuzzy Search**: Search keys that partially match file/directory paths can be entered in any order. 
-- 🧠 **Memorization**: Alfred manages the order of items according to memorized past usage.
-- 🗂 **Folder Action**: Search directories can be set in user preferences or specified dynamically in a folder action.
+- ⚡️ **Fuzzy Search**: Search keys that partially match file/directory paths can be entered *in any order*. 
+- 🧠 **Memorization**: Alfred manages the order of items according to *memorized past usage*.
+- 🗂 **Folder Action**: Search directories can be set in user preferences or specified dynamically in a *folder action*.
 
 <img src='./files/fzf-alfred-screenshot.png' style='width:500px;'/>
 
