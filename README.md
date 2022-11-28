@@ -2,9 +2,11 @@
 
 An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using [fzf](https://github.com/junegunn/fzf) and [fd](https://github.com/sharkdp/fd).
 
-You can enter **search keys** that partially match file/directory paths **in any order**.
+## Features
 
-The search directory can be set in user configuration or specified dynamically in [universal action](https://www.alfredapp.com/universal-actions/).
+- ⚡️ **Fuzzy Search**: Search keys that partially match file/directory paths can be entered in any order. 
+- 🧠 **Memorization**: Alfred manages the order of items according to memorized past usage.
+- 🗂 **Folder Action**: Search directories can be set in user preferences or specified dynamically in a folder action.
 
 <img src='./files/fzf-alfred-screenshot.png' style='width:500px;'/>
 
@@ -50,7 +52,7 @@ Set values to the following options in `User Configuration` (Alfred 5) or `Envir
 | `search_path`    | Directory from which recursive fzf searches are conducted __\*__                   |
 | `memorize`       | If checked or set `true`, Alfred will manage the order of items according to usage |
 
-__\*__ Search directory can be also specified dynamically in [Universal Action](https://www.alfredapp.com/universal-actions/).
+__\*__ Search directory can be also specified dynamically in a [folder action](https://www.alfredapp.com/universal-actions/).
 
 You can check paths to `fzf` and `fd` as follows once these have been installed:
 
