@@ -4,9 +4,9 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 ## Features
 
-- ⚡️ **Fuzzy Search**: You can enter search keys that partially match file/directory paths <span style='color:#CC6666'>*in any order*</span>. 
-- 🧠 **Memorization**: Alfred manages the order of items according to <span style='color:#CC6666'>*past usage*</span>.
-- 🗂 **Folder Action**: Search directory can be set in user preferences or specified dynamically in a <span style='color:#CC6666'>*folder action*</span>.
+- ⚡️ **Fuzzy Search**: You can enter search keys that partially match file/directory paths *in any order*. 
+- 🧠 **Memorization**: Alfred manages the order of items according to *past usage*.
+- 🗂 **Folder Action**: Search directory can be set in user preferences or specified dynamically in a *folder action*.
 
 <img src='./files/fzf-alfred-screenshot.png' style='width:500px;'/>
 
@@ -14,7 +14,7 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 ## Downloads
 
-Current Version: `1.1.0`
+Current Version: `1.1.1`
 
 - [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
 - [⤓ Download Workflow for Alfred 4](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-4-workfow.alfredworkflow)
@@ -45,7 +45,7 @@ brew install fd
 
 Set values to the following options in `User Configuration` (Alfred 5) or `Environmental Variables` (Alfred 4):
 
-<span style='color:#CC6666'>**NOTE**</span>: It is strongly recommended to set the path to a specific folder to `search_path` for better performance.
+**NOTE**: It is strongly recommended to set the path to a specific folder to `search_path` for better performance.
 
 | Variable         | Explanation                                                                        |
 | ---------------- | ---------------------------------------------------------------------------------- |
@@ -75,13 +75,13 @@ You can check paths to `fzf` and `fd` as follows once these have been installed:
 
 ## Ways of Invocation
 
-**1. Fallback Search** <span style='color:#CC6666'>[recommended]</span>
+**1. Fallback Search** [recommended]
 
 Setup: Features → Default Results → Setup fallback results → Add Workflow Trigger "FZF Search"
 
 Type in search keys and select "FZF Search"
 
-**2. Folder Action** <span style='color:#CC6666'>[recommended]</a>
+**2. Folder Action** [recommended]
 
 Setup: Features → Universal Actions → Actions → Check Workflow File Actions
 
