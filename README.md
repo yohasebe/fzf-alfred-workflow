@@ -4,9 +4,9 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 ## Features
 
-- ⚡️ **Fuzzy Search**: Search keys that partially match file/directory paths can be entered *in any order*. 
-- 🧠 **Memorization**: Alfred manages the order of items according to *memorized past usage*.
-- 🗂 **Folder Action**: Search directories can be set in user preferences or specified dynamically in a *folder action*.
+- ⚡️ **Fuzzy Search**: You can enter search keys that partially match file/directory paths <span style='color:#CC6666'>*in any order*</span>. 
+- 🧠 **Memorization**: Alfred manages the order of items according to <span style='color:#CC6666'>*past usage*</span>.
+- 🗂 **Folder Action**: Search directory can be set in user preferences or specified dynamically in a <span style='color:#CC6666'>*folder action*</span>.
 
 <img src='./files/fzf-alfred-screenshot.png' style='width:500px;'/>
 
@@ -21,6 +21,7 @@ Current Version: `1.1.0`
 
 **Change Log**
 
+- `1.1.1`: File and directory searches can be dynamically set with `-f` and `-d`, respectively (in addition to `^f` and `^d`).
 - `1.1.0`: Memorize order option (`memorize`) is added and set default to `true`
 - `1.0.2`: Search path option (`search_path`) is set default to `~` (home directory)
 - `1.0.1`: User configuration made available for Alfred 5
@@ -43,6 +44,8 @@ brew install fd
 ### Setting Up
 
 Set values to the following options in `User Configuration` (Alfred 5) or `Environmental Variables` (Alfred 4):
+
+<span style='color:#CC6666'>**NOTE**</span>: It is strongly recommended to set the path to a specific folder to `search_path` for better performance.
 
 | Variable         | Explanation                                                                        |
 | ---------------- | ---------------------------------------------------------------------------------- |
@@ -72,27 +75,28 @@ You can check paths to `fzf` and `fd` as follows once these have been installed:
 
 ## Ways of Invocation
 
-**1. Using Keyword**
+**1. Fallback Search** <span style='color:#CC6666'>[recommended]</span>
 
-Type in `fzf` and search keys
-
-**2. Using User-specified Hotkey**
-
-Setup: Preferences → Workflows → fzf-alfred-workflow → Double click "Hotkey"
-
-Press the hotkey specified and type in search keys
-
-**3. Fallback Search**
-
-Setup: Preferences → Default Results → Setup fallback results → Add Workflow Trigger "FZF Search"
+Setup: Features → Default Results → Setup fallback results → Add Workflow Trigger "FZF Search"
 
 Type in search keys and select "FZF Search"
 
-**4. Universal Action**
+**2. Folder Action** <span style='color:#CC6666'>[recommended]</a>
 
-Setup: Preferences → Universal Actions → Actions → Check Workflow File Actions
+Setup: Features → Universal Actions → Actions → Check Workflow File Actions
 
 Select a folder in the Finder and enter the search key. The selected folder becomes the search path temporarily overriding the search path specified in user configuration.
+
+**3. Using Keyword**
+
+Type in `fzf` and search keys
+
+**4. Using User-specified Hotkey**
+
+Setup: Features → Workflows → fzf-alfred-workflow → Double click "Hotkey"
+
+Press the hotkey specified and type in search keys
+
 
 ## Example Usage
 
@@ -122,7 +126,7 @@ You can narrow them down by adding search keys. Again, the order of search keys 
 
 ### File Only Search
 
-Use `^f` directive to search files only.
+Use `^f` or `-f` directive to search files only.
 
 `fzf metallica puppets ^f`
 
@@ -137,7 +141,7 @@ Use `^f` directive to search files only.
 
 ### Directory Only Search
 
-Use `^d` directive to search directories only.
+Use `^d` or `-d` directive to search directories only.
 
 `fzf metallica puppets ^d`
 
