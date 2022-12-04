@@ -42,6 +42,10 @@ brew install fzf
 brew install fd
 ```
 
+### Check for Update
+
+Type `fzf-check-for-update` and run the workflow. If there is a newer version, click on the "Download" button. The readme/download page on Github will open.
+
 ### Setting Up
 
 Set values to the following options in `User Configuration` (Alfred 5) or `Environmental Variables` (Alfred 4):
@@ -97,10 +101,6 @@ Type in `fzf` and search keys
 Setup: Features → Workflows → fzf-alfred-workflow → Double click "Hotkey"
 
 Press the hotkey specified and type in search keys
-
-### Check for Update
-
-Type `fzf-check-for-update` and run the workflow. If there is a newer version, click on the "Download" button. The readme/download page on Github will open.
 
 ## Example Usage
 
