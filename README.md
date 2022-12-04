@@ -14,14 +14,14 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 ## Downloads
 
-Current Version: **1.2.1**
+Current Version: **1.2.2**
 
 - [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
 - [⤓ Download Workflow for Alfred 4](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-4-workfow.alfredworkflow)
 
 **Change Log**
 
-- 1.2.1: "Check for-update command has been added
+- 1.2.2: "Check for-update command has been added
 - 1.1.1: File and directory searches can be dynamically set with `-f` and `-d`, respectively (in addition to `^f` and `^d`).
 - 1.1.0: Memorize order option (`memorize`) is added and set default to `true`
 - 1.0.2: Search path option (`search_path`) is set default to `~` (home directory)
