@@ -21,7 +21,7 @@ Current Version: **1.2.2**
 
 **Change Log**
 
-- 1.2.2: "check-for-update command has been added
+- 1.2.2: check-for-update command has been added
 - 1.1.1: File and directory searches can be dynamically set with `-f` and `-d`, respectively (in addition to `^f` and `^d`).
 - 1.1.0: Memorize order option (`memorize`) is added and set default to `true`
 - 1.0.2: Search path option (`search_path`) is set default to `~` (home directory)
