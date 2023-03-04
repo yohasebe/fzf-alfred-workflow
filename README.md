@@ -2,25 +2,25 @@
 
 An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using [fzf](https://github.com/junegunn/fzf) and [fd](https://github.com/sharkdp/fd).
 
+<img src='./files/fzf-alfred-screenshot.png' style='width:500px;'/>
+
 ## Features
 
 - ⚡️ **Fuzzy Search**: You can enter search keys that partially match file/directory paths *in any order*. 
 - 🧠 **Memorization**: Alfred manages the order of items according to *past usage*.
 - 🗂 **Folder Action**: Search directory can be set in user preferences or specified dynamically in a *folder action*.
 
-<img src='./files/fzf-alfred-screenshot.png' style='width:500px;'/>
-
 ![screenshot](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/files/screenshot.gif)
 
 ## Downloads
 
-Current Version: **1.2.2**
+Current Version: **1.3.0**
 
 - [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
-- [⤓ Download Workflow for Alfred 4](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-4-workfow.alfredworkflow)
 
 **Change Log**
 
+- 1.3.0: check-for-update has been removed (in preparation for application to Alfred Gallery)
 - 1.2.2: check-for-update command has been added
 - 1.1.1: File and directory searches can be dynamically set with `-f` and `-d`, respectively (in addition to `^f` and `^d`).
 - 1.1.0: Memorize order option (`memorize`) is added and set default to `true`
@@ -29,54 +29,32 @@ Current Version: **1.2.2**
 
 ## Installation
 
-### Prerequisites
+### Dependencies
 
 - [Alfred Powerpack](https://www.alfredapp.com/powerpack/)
 - [fzf](https://github.com/junegunn/fzf): a general-purpose command-line fuzzy finder
 - [fd](https://github.com/sharkdp/fd): a simple, fast and user-friendly alternative to *find*
 
-Installation using [homebrew](https://brew.sh/)
+Installation of fzf and fd using [homebrew](https://brew.sh/)
 
 ```shell
 brew install fzf
 brew install fd
 ```
 
-### Check for Update
-
-Type `check-for-update` and run the workflow. If there is a newer version, click on the "Download" button. The readme/download page on Github will open.
-
 ### Setting Up
 
-Set values to the following options in `User Configuration` (Alfred 5) or `Environmental Variables` (Alfred 4):
+Set values to the following options in `User Configuration` (Alfred 5):
 
 **NOTE**: It is strongly recommended to set the path to a specific folder to `search_path` for better performance.
 
 | Variable         | Explanation                                                                        |
 | ---------------- | ---------------------------------------------------------------------------------- |
-| `fzf_path`       | Path to `fzf` command (default: `/opt/homebrew/bin/fzf`)                           |
-| `fd_path`        | Path to `fd` command (default: `/opt/homebrew/bin/fd`)                             |
 | `num_candidates` | Number of candidate files/directories shown in Alfred (default: 100)               |
 | `search_path`    | Directory from which recursive fzf searches are conducted __\*__                   |
 | `memorize`       | If checked or set `true`, Alfred will manage the order of items according to usage |
 
 __\*__ Search directory can be also specified dynamically in a [folder action](https://www.alfredapp.com/universal-actions/).
-
-You can check paths to `fzf` and `fd` as follows once these have been installed:
-
-```shell
-> which fzf
-# When installing on Apple Sillicon Model with homebrew 
-#/opt/homebrew/bin/fzf 
-# When installing on Intel Model with homebrew 
-#/usr/local/bin/fzf 
-
-> which fd
-# When installing on Apple Sillicon Model with homebrew 
-#/opt/homebrew/bin/fd 
-# When installing on Intel Model with homebrew 
-#/usr/local/bin/fd
-```
 
 ## Ways of Invocation
 
@@ -154,6 +132,7 @@ Use `^d` or `-d` directive to search directories only.
 ## Acknowledgments
 
 The icon of this workflow <span><img src='./files/fzf-alfred-icon.png' style='height:24px;'/></span> is used under [Simplified Pixabay License](https://pixabay.com/ja/service/license/)
+
 ## Author
 
 Yoichiro Hasebe (<yohasebe@gmail.com>)
