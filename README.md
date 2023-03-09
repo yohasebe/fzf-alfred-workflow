@@ -14,12 +14,13 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 ## Downloads
 
-Current Version: **1.3.0**
+Current Version: **1.3.1**
 
 - [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
 
 **Change Log**
 
+- 1.3.1: `fzf-cd-module` hotkey feature added (thanks to pSpitzner)
 - 1.3.0: check-for-update has been removed (in preparation for application to Alfred Gallery)
 - 1.2.2: check-for-update command has been added
 - 1.1.1: File and directory searches can be dynamically set with `-f` and `-d`, respectively (in addition to `^f` and `^d`).
@@ -56,29 +57,40 @@ Set values to the following options in `User Configuration` (Alfred 5):
 
 __\*__ Search directory can be also specified dynamically in a [folder action](https://www.alfredapp.com/universal-actions/).
 
-## Ways of Invocation
+## File/Directory Search
 
-**1. Fallback Search** [recommended]
+### Fallback search
 
 Setup: Features → Default Results → Setup fallback results → Add Workflow Trigger "FZF Search"
 
 Type in search keys and select "FZF Search"
 
-**2. Folder Action** [recommended]
+### Folder action
 
 Setup: Features → Universal Actions → Actions → Check Workflow File Actions
 
 Select a folder in the Finder and enter the search key. The selected folder becomes the search path temporarily overriding the search path specified in user configuration.
 
-**3. Using Keyword**
+### Using keyword
 
 Type in `fzf` and search keys
 
-**4. Using User-specified Hotkey**
+### Using user-specified hotkey**
 
-Setup: Features → Workflows → fzf-alfred-workflow → Double click "Hotkey"
+Setup: Features → Workflows → fzf-alfred-workflow → Double click "fzf workflow activation hotkey"
 
 Press the hotkey specified and type in search keys
+
+## Repeated Directory Change
+
+### `fzf-cd` hotkey
+
+Setup: Features → Workflows → fzf-alfred-workflow → Double click "fzf-cd hotkey"
+
+Select a folder in a Finder window or Alfred folder browser. Then press the hotkey. You can do this repeatedly until you finally reach the target file or directory.
+
+| NOTE  
+| Thanks to [Paul Spitzner](https://github.com/pSpitzner) for suggesting this.
 
 ## Example Usage
 
