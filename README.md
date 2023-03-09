@@ -89,8 +89,8 @@ Setup: Features → Workflows → fzf-alfred-workflow → Double click "fzf-cd h
 
 Select a folder in a Finder window or Alfred folder browser. Then press the hotkey. You can do this repeatedly until you finally reach the target file or directory.
 
-| NOTE  
-| Thanks to [Paul Spitzner](https://github.com/pSpitzner) for suggesting this.
+> **Note**  
+> Thanks to [Paul Spitzner](https://github.com/pSpitzner) for suggesting this.
 
 ## Example Usage
 
