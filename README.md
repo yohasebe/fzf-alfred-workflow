@@ -12,14 +12,9 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 ![screenshot](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/files/screenshot.gif)
 
-## Downloads
-
-Current Version: **1.3.3**
-
-- [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
-
 **Change Log**
 
+- 1.4.0: Better performance; Alfred Gallery](https://alfred.app/workflows/yohasebe/fzf/) inclusion
 - 1.3.2: fzf and fd installation is automatically detected
 - 1.3.1: `fzf-cd-module` hotkey feature added (thanks to pSpitzner)
 - 1.3.0: check-for-update has been removed (in preparation for application to Alfred Gallery)
@@ -31,13 +26,26 @@ Current Version: **1.3.3**
 
 ## Installation
 
-### Dependencies
+There are two ways to install this workflow:
+
+1. Automatic Installation via [Alfred Gallery](https://alfred.app/workflows/yohasebe/fzf/)
+2. Manual Installation (see below)
+
+## Downloads
+
+Current Version: **1.4.0**
+
+- [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
+
+## Dependencies
+
+Installation of `fzf` and `fd` is only required if the workflow is installed manually. 
 
 - [Alfred Powerpack](https://www.alfredapp.com/powerpack/)
 - [fzf](https://github.com/junegunn/fzf): a general-purpose command-line fuzzy finder
 - [fd](https://github.com/sharkdp/fd): a simple, fast and user-friendly alternative to *find*
 
-Installation of fzf and fd using [homebrew](https://brew.sh/)
+Using [homebrew](https://brew.sh/):
 
 ```shell
 brew install fzf
@@ -48,15 +56,16 @@ brew install fd
 
 Set values to the following options in `User Configuration` (Alfred 5):
 
-**NOTE**: It is strongly recommended to set the path to a specific folder to `search_path` for better performance.
-
-| Variable         | Explanation                                                                        |
-| ---------------- | ---------------------------------------------------------------------------------- |
-| `num_candidates` | Number of candidate files/directories shown in Alfred (default: 100)               |
-| `search_path`    | Directory from which recursive fzf searches are conducted __\*__                   |
-| `memorize`       | If checked or set `true`, Alfred will manage the order of items according to usage |
+| Setting           | Explanation                                                                        |
+| ----------------- | ---------------------------------------------------------------------------------- |
+| Num of candidates | Number of candidate files/directories shown in Alfred (default: 100)               |
+| Search path(s)    | Directory from which recursive fzf searches are conducted (default: `~`) __\*__    |
+| Memorize order    | If checked or set `true`, Alfred will manage the order of items according to usage |
 
 __\*__ Search directory can be also specified dynamically in a [folder action](https://www.alfredapp.com/universal-actions/).
+
+> **Note** 
+> Multiple paths may be specified in "Search path(s)" separated by semicolons. If a home directory is specified, `~/Library` will be ignored for better performance; to search within a cloud storage folder such as Dropbox or OneDrive, specify `~/Library/CloudStorage/`. (e.g. `~; ~/Library/CloudStorage/`)
 
 ## File/Directory Search
 
@@ -70,17 +79,17 @@ Type in search keys and select "FZF Search"
 
 Setup: Features → Universal Actions → Actions → Check Workflow File Actions
 
-Select a folder in the Finder and enter the search key. The selected folder becomes the search path temporarily overriding the search path specified in user configuration.
+Select a folder in the Finder and launch File Action "FZF Search from Here". The selected folder will be the search path that temporarily overrides the search path specified in the user settings.
 
 ### Using keyword
 
-Type in `fzf` and search keys
+Type in `fzf` and enter search keys
 
-### Using user-specified hotkey**
+### Using user-specified hotkey
 
 Setup: Features → Workflows → fzf-alfred-workflow → Double click "fzf workflow activation hotkey"
 
-Press the hotkey specified and type in search keys
+Press the hotkey specified and type enter search keys
 
 ## Repeated Directory Change
 
@@ -90,7 +99,6 @@ Setup: Features → Workflows → fzf-alfred-workflow → Double click "fzf-cd h
 
 Select a folder in a Finder window or Alfred folder browser. Then press the hotkey. You can do this repeatedly until you finally reach the target file or directory.
 
-> **Note**  
 > Thanks to [Paul Spitzner](https://github.com/pSpitzner) for suggesting this.
 
 ## Example Usage
