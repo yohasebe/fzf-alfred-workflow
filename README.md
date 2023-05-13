@@ -15,7 +15,7 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 **Change Log**
 
-- 1.5.0: `fzf-history` and `fzf-edit-history` commands added
+- 1.5.1: `fzf-history` and `fzf-edit-history` commands added
 - 1.4.0: Better performance; Alfred Gallery](https://alfred.app/workflows/yohasebe/fzf/) inclusion
 - 1.3.2: fzf and fd installation is automatically detected
 - 1.3.1: `fzf-cd-module` hotkey feature added (thanks to pSpitzner)
@@ -35,7 +35,7 @@ There are two ways to install this workflow:
 
 ## Downloads
 
-Current Version: **1.5.0**
+Current Version: **1.5.1**
 
 - [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
 
@@ -58,11 +58,12 @@ brew install fd
 
 Set values to the following options in `User Configuration` (Alfred 5):
 
-| Setting           | Explanation                                                                        |
-| ----------------- | ---------------------------------------------------------------------------------- |
-| Num of candidates | Number of candidate files/directories shown in Alfred (default: 100)               |
-| Search path(s)    | Directory from which recursive fzf searches are conducted (default: `~`) __\*__    |
-| Memorize order    | If checked or set `true`, Alfred will manage the order of items according to usage |
+| Setting                  | Explanation                                                                        |
+| -----------------        | ---------------------------------------------------------------------------------- |
+| Num of candidates        | Number of candidate files/directories shown in Alfred (default: 100)               |
+| Search path(s)           | Directory from which recursive fzf searches are conducted (default: `~`) __\*__    |
+| Memorize order           | If checked or set `true`, Alfred will manage the order of items according to usage |
+| Max Num of Past Searches | Maximum number of past search history retained (default: 1000                      |
 
 __\*__ Search directory can be also specified dynamically in a [folder action](https://www.alfredapp.com/universal-actions/).
 
