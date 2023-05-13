@@ -9,11 +9,13 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 - ⚡️ **Fuzzy Search**: You can enter search keys that partially match file/directory paths *in any order*. 
 - 🧠 **Memorization**: Alfred manages the order of items according to *past usage*.
 - 🗂 **Folder Action**: Search directory can be set in user preferences or specified dynamically in a *folder action*.
+- 📝 **Editable Search History**: *Search history* is automatically recorded and can be edited lator.
 
 ![screenshot](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/files/screenshot.gif)
 
 **Change Log**
 
+- 1.5.0: `fzf-history` and `fzf-edit-history` commands added
 - 1.4.0: Better performance; Alfred Gallery](https://alfred.app/workflows/yohasebe/fzf/) inclusion
 - 1.3.2: fzf and fd installation is automatically detected
 - 1.3.1: `fzf-cd-module` hotkey feature added (thanks to pSpitzner)
@@ -33,7 +35,7 @@ There are two ways to install this workflow:
 
 ## Downloads
 
-Current Version: **1.4.0**
+Current Version: **1.5.0**
 
 - [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
 
@@ -100,6 +102,26 @@ Setup: Features → Workflows → fzf-alfred-workflow → Double click "fzf-cd h
 Select a folder in a Finder window or Alfred folder browser. Then press the hotkey. You can do this repeatedly until you finally reach the target file or directory.
 
 > Thanks to [Paul Spitzner](https://github.com/pSpitzner) for suggesting this.
+
+## List and Edit Search History
+
+The search key is automatically recorded in a file name (`fzf-search-history.txt`) in the workflow data directory (only if more than one search result is found).
+
+### Using keyword
+
+The `fzf-history` command reads this file and allows you to select one of your previous searches and repeat it. 
+
+### Using user-specified hotkey
+
+Setup: Features → Workflows → fzf-alfred-workflow → Double click "fzf history search hotkey".
+
+### Editing Search History
+
+The fzf-edit-history command sends the path to the history file to Alfred, allowing you to edit it in the app of your choice. The history file contains lines of text, each consisting of the date and time of a past search, followed by the search key separated by a single vertical line (|).
+
+Example: `2023-05-13 20:14:51 +0900 | search string`
+
+Hotkey Setup: Features → Workflows → fzf-alfred-workflow → Double click "fzf history edit hotkey".
 
 ## Example Usage
 
