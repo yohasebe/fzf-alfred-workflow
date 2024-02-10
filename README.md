@@ -23,7 +23,7 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 - 1.3.1: `fzf-cd-module` hotkey feature added (thanks to pSpitzner)
 - 1.3.0: check-for-update has been removed (in preparation for application to Alfred Gallery)
 - 1.2.2: check-for-update command has been added
-- 1.1.1: File and directory searches can be dynamically set with `-f` and `-d`, respectively (in addition to `^f` and `^d`).
+- 1.1.1: File and directory searches can be set with `-f` and `-d`, respectively (in addition to `^f` and `^d`).
 - 1.1.0: Memorize order option (`memorize`) is added and set default to `true`
 - 1.0.2: Search path option (`search_path`) is set default to `~` (home directory)
 - 1.0.1: User configuration made available for Alfred 5
