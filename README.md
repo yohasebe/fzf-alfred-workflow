@@ -11,10 +11,12 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 - 🗂 **Folder Action**: Search directory can be set in user preferences or specified dynamically in a *folder action*.
 - 📝 **Editable Search History**: *Search history* is automatically recorded and can be edited lator.
 
-![screenshot](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/files/screenshot.gif)
+<img src='./files/screenshot.gif' style='width:500px;'/>
 
 **Change Log**
 
+- 1.6.0: Notification on first run after macos startup
+- 1.5.3: `fzf` and `fd` detection improved
 - 1.5.2: `fzf-history` and `fzf-edit-history` commands added
 - 1.4.0: Better performance; Alfred Gallery](https://alfred.app/workflows/yohasebe/fzf/) inclusion
 - 1.3.2: fzf and fd installation is automatically detected
@@ -35,7 +37,7 @@ There are two ways to install this workflow:
 
 ## Downloads
 
-Current Version: **1.5.2**
+Current Version: **1.6.0**
 
 - [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
 
@@ -55,6 +57,8 @@ brew install fd
 ```
 
 ### Setting Up
+
+<img src='./files/fzf-alfred-config.png' style='width:500px;'/>
 
 Set values to the following options in `User Configuration` (Alfred 5):
 
