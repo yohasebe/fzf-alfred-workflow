@@ -15,7 +15,7 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 **Change Log**
 
-- 1.6.0: Notification on first run after macos startup
+- 1.6.1: Notification on first run after macos startup
 - 1.5.3: `fzf` and `fd` detection improved
 - 1.5.2: `fzf-history` and `fzf-edit-history` commands added
 - 1.4.0: Better performance; Alfred Gallery](https://alfred.app/workflows/yohasebe/fzf/) inclusion
@@ -37,7 +37,7 @@ There are two ways to install this workflow:
 
 ## Downloads
 
-Current Version: **1.6.0**
+Current Version: **1.6.1**
 
 - [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
 
