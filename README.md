@@ -9,7 +9,7 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 - ⚡️ **Fuzzy Search**: You can enter search keys that partially match file/directory paths *in any order*. 
 - 🧠 **Memorization**: Alfred manages the order of items according to *past usage*.
 - 🗂 **Folder Action**: Search directory can be set in user preferences or specified dynamically in a *folder action*.
-- 📝 **Editable Search History**: *Search history* is automatically recorded and can be edited lator.
+- 📝 **Editable Search History**: *Search history* is automatically recorded and can be edited later.
 
 <img src='./files/screenshot.gif' style='width:500px;'/>
 
@@ -37,7 +37,7 @@ There are two ways to install this workflow:
 
 ## Downloads
 
-Current Version: **1.6.1**
+Current Version: **1.6.2**
 
 - [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
 
@@ -71,8 +71,11 @@ Set values to the following options in `User Configuration` (Alfred 5):
 
 __\*__ Search directory can be also specified dynamically in a [folder action](https://www.alfredapp.com/universal-actions/).
 
-> **Note** 
+> **Note 1** 
 > Multiple paths may be specified in "Search path(s)" separated by semicolons. If a home directory is specified, `~/Library` will be ignored for better performance; to search within a cloud storage folder such as Dropbox or OneDrive, specify `~/Library/CloudStorage/`. (e.g. `~; ~/Library/CloudStorage/`)
+
+> **Note 2** 
+> If changes to “Search path(s)” do not take effect, restarting your Mac may resolve the issue.
 
 ## File/Directory Search
 
