@@ -71,10 +71,10 @@ Set values to the following options in `User Configuration` (Alfred 5):
 
 __\*__ Search directory can be also specified dynamically in a [folder action](https://www.alfredapp.com/universal-actions/).
 
-> **Note 1** 
+> **Note 1** <br />
 > Multiple paths may be specified in "Search path(s)" separated by semicolons. If a home directory is specified, `~/Library` will be ignored for better performance; to search within a cloud storage folder such as Dropbox or OneDrive, specify `~/Library/CloudStorage/`. (e.g. `~; ~/Library/CloudStorage/`)
 
-> **Note 2** 
+> **Note 2** <br />
 > If changes to “Search path(s)” do not take effect, restarting your Mac may resolve the issue.
 
 ## File/Directory Search
