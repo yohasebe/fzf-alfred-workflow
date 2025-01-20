@@ -187,7 +187,7 @@ You can set options to the `fd` command that searches for files and folders to b
 
 You can change this option by setting the environment variable `fd_options` in the workflow configuration. For example, if you set the environment variable `fd_options` to `--hidden --case-sensitive`, as shown below, hidden files such as dot files will be included in the search, and the search will be case-sensitive (and `Library` directories will not be excluded anymore).
 
-<img src='./files/extra_fd_options.png' style='width:700px;'/>
+<img src='./files/fd_options.png' style='width:700px;'/>
 
 Note that these options are appended internally with the options automatically specified by this workflow such as `--type f` or `--type d` to search files or directories only.
 
