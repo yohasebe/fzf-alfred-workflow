@@ -15,7 +15,7 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 **Change Log**
 
-- 1.7.0: Environment variable `fd_options` added
+- 1.7.1: Environment variable `fd_options_conf` added
 - 1.6.2: Notification on first run after macos startup
 - 1.5.3: `fzf` and `fd` detection improved
 - 1.5.2: `fzf-history` and `fzf-edit-history` commands added
@@ -185,9 +185,9 @@ Use `^d` or `-d` directive to search directories only.
 
 You can set options to the `fd` command that searches for files and folders to be passed to `fzf`. The default option is `--exclude Library` to exclude the `Library` directories in the current search path, which helps speed up the search for users who do not need to search in the `Library` directories.
 
-You can change this option by setting the environment variable `fd_options` in the workflow configuration. For example, if you set the environment variable `fd_options` to `--hidden --case-sensitive`, as shown below, hidden files such as dot files will be included in the search, and the search will be case-sensitive (and `Library` directories will not be excluded anymore).
+You can change this option by setting the environment variable `fd_options_conf` in the workflow configuration. For example, if you set the environment variable `fd_options_conf` to `--hidden --case-sensitive`, as shown below, hidden files such as dot files will be included in the search, and the search will be case-sensitive (and `Library` directories will not be excluded anymore).
 
-<img src='./files/fd_options.png' style='width:700px;'/>
+<img src='./files/fd_options_conf.png' style='width:700px;'/>
 
 Note that these options are appended internally with the options automatically specified by this workflow such as `--type f` or `--type d` to search files or directories only.
 
