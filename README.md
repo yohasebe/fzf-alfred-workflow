@@ -15,6 +15,7 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 **Change Log**
 
+- 1.9.0: Exclude Pattern(s) setting added to easily exclude common folders (e.g., `node_modules`, `.git`) from search results
 - 1.8.0: Package/bundle handling option added (treat as files by default, optionally as directories); custom package extensions via `package_extensions` environment variable
 - 1.7.1: Environment variable `fd_options_conf` added
 - 1.6.2: Notification on first run after macos startup
@@ -39,7 +40,7 @@ There are two ways to install this workflow:
 
 ## Downloads
 
-Current Version: **1.8.0**
+Current Version: **1.9.0**
 
 - [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
 
@@ -70,9 +71,12 @@ Set values to the following options in `User Configuration` (Alfred 5):
 | Search path(s)                | Directory from which recursive fzf searches are conducted (default: `~`) __\*__    |
 | Memorize order                | If checked or set `true`, Alfred will manage the order of items according to usage |
 | Max Num of Past Searches      | Maximum number of past search history retained (default: 1000)                      |
+| Exclude Pattern(s)            | Folder/file name patterns to exclude from search, separated by semicolons (default: `node_modules;.git;`) __\*\*\*__ |
 | Treat Packages as Directories | If checked, packages/bundles (.app, .key, .pages, etc.) are treated as directories and their contents are searchable (default: unchecked) __\*\*__ |
 
 __\*__ Search directory can be also specified dynamically in a [folder action](https://www.alfredapp.com/universal-actions/).
+
+__\*\*\*__ Patterns are matched by name against all files and folders in the search tree, regardless of their location. For example, `node_modules` excludes every `node_modules` folder and its contents. Glob wildcards are supported (e.g., `*.log`, `*cache*`).
 
 __\*\*__ By default (unchecked), packages/bundles are treated as files and excluded from directory searches using `^d` or `-d`. When searching for files with `^f` or `-f`, packages appear as files but their contents are not searchable. See [Advanced Usage](#advanced-usage) for more details on package handling.
 
@@ -196,6 +200,8 @@ You can change this option by setting the environment variable `fd_options_conf`
 <img src='./files/fd_options_conf.png' style='width:700px;'/>
 
 Note that these options are appended internally with the options automatically specified by this workflow such as `--type f` or `--type d` to search files or directories only.
+
+> **Tip:** If you only need to exclude specific folder names (e.g., `node_modules`, `.git`), use the `Exclude Pattern(s)` setting in the Configuration Builder instead. `fd_options_conf` is best suited for non-exclude options such as `--hidden` or `--case-sensitive`.
 
 Please refer to [command-line options](https://github.com/sharkdp/fd?tab=readme-ov-file#command-line-options) for the options available for `fd`.
 
