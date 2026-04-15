@@ -15,6 +15,7 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 **Change Log**
 
+- 1.9.1: Auto-detect `fd` and `fzf` in common Homebrew paths to fix "no results found" issue on systems with minimal Alfred PATH (issue #10)
 - 1.9.0: Exclude Pattern(s) setting added to easily exclude common folders (e.g., `node_modules`, `.git`) from search results
 - 1.8.0: Package/bundle handling option added (treat as files by default, optionally as directories); custom package extensions via `package_extensions` environment variable
 - 1.7.1: Environment variable `fd_options_conf` added
@@ -40,7 +41,7 @@ There are two ways to install this workflow:
 
 ## Downloads
 
-Current Version: **1.9.0**
+Current Version: **1.9.1**
 
 - [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
 
