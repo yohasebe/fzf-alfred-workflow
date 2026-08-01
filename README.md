@@ -16,7 +16,7 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 **Change Log**
 
-- 1.11.0: Search history now records a search when one of its results is chosen, instead of recording every keystroke along the way; repeating a search moves it back to the top rather than adding a duplicate; opening the search with an empty query lists your recent searches
+- 1.11.0: Search history now records a search when one of its results is chosen, instead of recording every keystroke along the way; repeating a search moves it back to the top rather than adding a duplicate; `fzf-history` collapses repeats, so history files written by earlier versions read as a list of searches too
 - 1.10.0: Filenames stored in either Unicode normalization form are now matched, so a query typed through a Japanese IME finds names macOS saved in decomposed form; optional candidate cache makes repeat searches on large search paths instant; results can be previewed with Quick Look; packages/bundles are handled correctly (see below); queries are no longer passed through a shell
 - 1.9.2: Show a clear error message in Alfred and the debugger when `fd` or `fzf` cannot be located, instead of silently returning no results
 - 1.9.1: Auto-detect `fd` and `fzf` in common Homebrew paths as a safety net for unusual setups (issue #10)
@@ -79,7 +79,6 @@ Set values to the following options in `User Configuration` (Alfred 5):
 | Exclude Pattern(s)            | Folder/file name patterns to exclude from search, separated by semicolons (default: `node_modules;.git;`) __\*\*\*__ |
 | Treat Packages as Directories | If checked, packages/bundles (.app, .key, .pages, etc.) are treated as directories and their contents are searchable (default: unchecked) __\*\*__ |
 | Candidate Cache (seconds)     | Reuse the file list found by `fd` for this many seconds instead of walking the search path again on every keystroke (default: `0`, i.e. disabled) __\*\*\*\*__ |
-| Recent Searches               | If checked, opening the search with an empty query lists your recent searches (default: checked) |
 
 __\*__ Search directory can be also specified dynamically in a [folder action](https://www.alfredapp.com/universal-actions/).
 
@@ -133,11 +132,11 @@ Select a folder in a Finder window or Alfred folder browser. Then press the hotk
 
 The search key is automatically recorded in a file named `fzf-search-history.txt` in the workflow data directory. A search is recorded when you *choose* one of its results, not while you are typing it, so the history holds searches that actually led somewhere rather than every prefix along the way. Repeating a search moves it back to the top of the list instead of adding a second copy.
 
-If "Recent Searches" is enabled, opening the search with an empty query lists these entries directly. Choosing one fills it into the search field so it runs again.
+Past searches are listed by the `fzf-history` command below, which is where all of them live: typing `fzf` offers it alongside `FZF Search`.
 
 ### Using keyword
 
-The `fzf-history` command reads this file and allows you to select one of your previous searches and repeat it. 
+The `fzf-history` command reads this file and allows you to select one of your previous searches and repeat it. Selecting an entry runs that search straight away. Repeated searches are collapsed into a single entry showing when you last made it, so a history file written by an earlier version, which recorded every keystroke, still reads as a list of searches.
 
 ### Using user-specified hotkey
 

@@ -722,44 +722,49 @@ check_called_post_startup</string>
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>require "json"
+				<string># frozen_string_literal: true
 
-file = File.expand_path "#{ENV["alfred_workflow_data"]}/fzf-search-history.txt"
+require "json"
+require "time"
 
-items = []
+file = File.expand_path "#{ENV['alfred_workflow_data']}/fzf-search-history.txt"
 
-unless File.exist?(file)
-  items &lt;&lt; {
-    "title": "No results found",
-    "valid": false
-  }
+# A search is recorded once, when one of its results is chosen, and repeating it
+# moves the existing record rather than adding another. Older history files
+# predate that: they were written on every keystroke, so the same search appears
+# many times over, alongside every prefix typed on the way to it. Collapse
+# repeats here, keeping the most recent time each search was made, so those files
+# read as a list of searches too.
+searches = {}
+if File.exist?(file)
+  File.foreach(file) do |line|
+    recorded_at, search = line.split("|", 2)
+    next if search.nil?
+    search = search.strip
+    next if search.empty?
+    searches[search] ||= recorded_at.strip
+  end
 end
 
-results = File.exist?(file) ? File.readlines(file) : nil
+def last_searched(recorded_at)
+  "Last searched #{Time.parse(recorded_at).strftime('%Y-%m-%d %H:%M')}"
+rescue ArgumentError, TypeError
+  recorded_at
+end
 
-type = "file:skipcheck"
-
-if results &amp;&amp; results.size &gt; 0
-  results.each do |result|
-    next unless result.index("|")
-    datetime, hist = result.split("|", 2)
-    next if datetime == "" || hist == ""
-    title = hist.strip
-    subtitle = datetime.strip
-    item =  {
-      "valid": true,
-      "type": type,
-      "title": title,
-      "subtitle": subtitle,
-      "arg": hist,
-    }
-    items &lt;&lt; item
-  end
+# No "type" here: the argument is a search to run again, not a path.
+items = searches.map do |search, recorded_at|
+  {
+    "valid":    true,
+    "title":    search,
+    "subtitle": last_searched(recorded_at),
+    "arg":      search
+  }
 end
 
 if items.empty?
   items &lt;&lt; {
-    "title": "No results found",
+    "title": "No searches recorded yet",
     "valid": false
   }
 end
@@ -799,7 +804,7 @@ print jsonout</string>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
-				<integer>1</integer>
+				<integer>0</integer>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>queuedelaycustom</key>
@@ -937,24 +942,6 @@ def filter_candidates(fzf_path, query, list)
   out.split("\x00").map { |path| path.force_encoding(Encoding::UTF_8) }
 end
 
-history_file = File.expand_path "#{ENV['alfred_workflow_data']}/fzf-search-history.txt"
-
-# Past searches, most recent first. Recording happens downstream, once a result
-# is actually chosen; this script only reads what is already there.
-def recent_searches(file_path, limit)
-  return [] unless File.exist?(file_path)
-
-  File.readlines(file_path).each_with_object([]) do |line, entries|
-    recorded_at, search = line.split("|", 2)
-    next if search.nil?
-    search = search.strip
-    next if search.empty?
-    entries &lt;&lt; [search, recorded_at.strip]
-    break entries if entries.size &gt;= limit
-  end
-rescue SystemCallError
-  []
-end
 
 # Locate an executable, tolerating Alfred's minimal PATH.
 # Priority: user-specified env var -&gt; common Homebrew paths -&gt; login shell lookup -&gt; nil.
@@ -1002,11 +989,6 @@ end
 memorize      = ENV["memorize"].to_i == 1 ? true : false
 treat_packages_as_dirs = ENV["treat_packages_as_dirs"].to_i == 1 ? true : false
 
-# Defaults on. An installation that predates this setting has no value for it at
-# all, and that should behave like a fresh one rather than like an opt-out.
-history_on_empty = ENV["history_on_empty"].to_s.strip
-history_on_empty = history_on_empty.empty? ? true : history_on_empty.to_i == 1
-
 search_paths  = ENV["search_home"] || ENV["search_path"]
 search_paths  = search_paths.split(/\s*;\s*/)
 search_paths = search_paths.map do |search_path|
@@ -1037,26 +1019,12 @@ end
 
 query.strip!
 
-# Nothing typed yet. Rather than leaving the window empty, offer the searches
-# that previously led somewhere. These items are not actionable: choosing one
-# autocompletes it into the search field, and the search then runs as usual.
-# A bare directive such as "^d" is a real search, so it does not land here.
+# With no keys at all there is nothing to match on, and an empty fzf filter would
+# return the entire search path. Say so instead. Past searches live under the
+# fzf-history keyword rather than here. Note that a bare directive such as "^d"
+# is a real search and does not land here.
 if keys.empty?
-  items =
-    if history_on_empty
-      recent_searches(history_file, num_candidates).map do |search, recorded_at|
-        {
-          "title"        =&gt; search,
-          "subtitle"     =&gt; "Search again  ·  #{recorded_at}",
-          "valid"        =&gt; false,
-          "autocomplete" =&gt; search
-        }
-      end
-    else
-      []
-    end
-  items &lt;&lt; { "title" =&gt; "Input search keys (space separated)", "valid" =&gt; false } if items.empty?
-  print({"items" =&gt; items}.to_json)
+  print({"items" =&gt; [{"title" =&gt; "Input search keys (space separated)", "valid" =&gt; false}]}.to_json)
   exit 0
 end
 
@@ -1532,7 +1500,7 @@ end</string>
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>1</integer>
+				<integer>0</integer>
 				<key>keyword</key>
 				<string>fzf</string>
 				<key>subtext</key>
@@ -2113,25 +2081,6 @@ NOTE: If a home directory is specified, ~/Library will be ignored for better per
 			<string>textfield</string>
 			<key>variable</key>
 			<string>cache_ttl</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>default</key>
-				<true/>
-				<key>required</key>
-				<false/>
-				<key>text</key>
-				<string>Show recent searches when nothing has been typed</string>
-			</dict>
-			<key>description</key>
-			<string>If checked, opening the search with an empty query lists your recent searches. Choosing one fills it into the search field so it runs again. [default = checked]</string>
-			<key>label</key>
-			<string>Recent Searches</string>
-			<key>type</key>
-			<string>checkbox</string>
-			<key>variable</key>
-			<string>history_on_empty</string>
 		</dict>
 	</array>
 	<key>variables</key>
