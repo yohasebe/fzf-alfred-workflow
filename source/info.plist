@@ -106,6 +106,26 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>C9F2A5B1-4E37-4D62-8A90-1B5C3E7F6D24</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Reveal in Finder</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D4A81C36-7B92-45E0-A1F8-2C6B9D0E5A73</string>
+				<key>modifiers</key>
+				<integer>262144</integer>
+				<key>modifiersubtext</key>
+				<string>Copy path to clipboard</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 		</array>
 		<key>39E6D860-0B1E-4455-BB4C-DC593100A7BA</key>
 		<array>
@@ -1203,6 +1223,33 @@ print path</string>
 			<integer>2</integer>
 		</dict>
 		<dict>
+			<key>type</key>
+			<string>alfred.workflow.action.revealfile</string>
+			<key>uid</key>
+			<string>C9F2A5B1-4E37-4D62-8A90-1B5C3E7F6D24</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>D4A81C36-7B92-45E0-A1F8-2C6B9D0E5A73</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
 			<key>config</key>
 			<dict>
 				<key>openwith</key>
@@ -1858,6 +1905,24 @@ Check out the [README](https://github.com/yohasebe/fzf-alfred-workflow) on the G
 			<key>ypos</key>
 			<real>270</real>
 		</dict>
+		<key>C9F2A5B1-4E37-4D62-8A90-1B5C3E7F6D24</key>
+		<dict>
+			<key>note</key>
+			<string>⌘ Reveal in Finder</string>
+			<key>xpos</key>
+			<real>1525</real>
+			<key>ypos</key>
+			<real>475</real>
+		</dict>
+		<key>D4A81C36-7B92-45E0-A1F8-2C6B9D0E5A73</key>
+		<dict>
+			<key>note</key>
+			<string>⌃ Copy path</string>
+			<key>xpos</key>
+			<real>1525</real>
+			<key>ypos</key>
+			<real>560</real>
+		</dict>
 		<key>C16ABD65-D706-4DC9-A84E-751005A2C29B</key>
 		<dict>
 			<key>xpos</key>
@@ -2095,7 +2160,7 @@ NOTE: If a home directory is specified, ~/Library will be ignored for better per
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.11.0</string>
+	<string>1.12.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/yohasebe/fzf-alfred-workflow</string>
 </dict>
