@@ -2,7 +2,7 @@
 
 An [Alfred](https://www.alfredapp.com/) workflow to fuzzy find files/directories using [fzf](https://github.com/junegunn/fzf) and [fd](https://github.com/sharkdp/fd).
 
-<img src='./files/fzf-alfred-screenshot.png' style='width:500px;'/>
+<img src='./files/how-it-works.svg' style='width:730px;' alt='The query "fzf damage puppets metallica" typed in the reverse of the order the words appear in the path, with connectors crossing to each match'/>
 
 ## Features
 
@@ -13,6 +13,21 @@ An [Alfred](https://www.alfredapp.com/) workflow to fuzzy find files/directories
 - 🌏 **Unicode-Normalization Aware**: macOS saves filenames in either composed or decomposed form, often side by side in the same folder. Search keys match *both*, so a name typed through a Japanese IME finds files either way.
 
 <img src='./files/screenshot.gif' style='width:500px;'/>
+
+## Why not just use Alfred's own file search?
+
+Alfred's built-in file search is very good at the question *what was that file called?* It matches names through Spotlight's index, and it can look inside files.
+
+This workflow answers a different question: *whereabouts in my folders was that thing?* It matches the **whole path**, so the folders a file sits in are part of what you search, and the words can arrive in any order.
+
+| | Alfred's file search | This workflow |
+| --- | --- | --- |
+| Matches against | file and folder names | the whole path, folders included |
+| Word order | as written | any order |
+| Needs Spotlight's index | yes | no — `fd` walks the folders itself |
+| Searches inside files | yes | no |
+
+The difference is most noticeable in folders Spotlight indexes unevenly — cloud storage such as Dropbox or OneDrive is the usual case — and whenever the thing you actually remember is not the filename but the route to it.
 
 **Change Log**
 

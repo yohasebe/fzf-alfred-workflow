@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730 282" width="730" height="282" role="img" aria-labelledby="tt ds">
+  <title id="tt">How a search matches</title>
+  <desc id="ds">The query "fzf damage puppets metallica" is typed in the reverse of the order the words appear in the path /music/metallica/master-of-puppets/08-damage-inc.mp3. Curved connectors cross to show that each word matches anywhere in the path, in any order, in folder names as well as the filename.</desc>
+
+  <style>
+    .mono  { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size: 17px; }
+    .sans  { font-family: ui-sans-serif, -apple-system, "Helvetica Neue", Arial, sans-serif; }
+    .hit   { font-weight: 700; }
+    .label { font-size: 13px; letter-spacing: .02em; }
+    .cap   { font-size: 13px; }
+    .link  { fill: none; stroke-width: 2; stroke-linecap: round; }
+    /* Colours are set as attributes so that renderers without CSS still show the
+       light scheme; only the dark scheme needs a stylesheet. */
+    @media (prefers-color-scheme: dark) {
+      .bg    { fill: #1a1a19; }
+      .ink   { fill: #ffffff; }
+      .muted { fill: #a3a29a; }
+      .f1    { fill: #3987e5; }
+      .f2    { fill: #d95926; }
+      .f3    { fill: #199e70; }
+      .k1    { stroke: #3987e5; }
+      .k2    { stroke: #d95926; }
+      .k3    { stroke: #199e70; }
+    }
+  </style>
+
+  <!-- An opaque surface, because a page theme set independently of the OS
+       preference would otherwise leave dark text on a dark page. -->
+  <rect class="bg" x="0" y="0" width="730" height="282" rx="10" fill="#fcfcfb"/>
+
+  <!-- what was typed -->
+  <text class="sans label muted" x="40" y="70" fill="#6b6a66">You type</text>
+  <text class="mono" y="70">
+    <tspan class="muted" x="130"   fill="#6b6a66" textLength="40.8" lengthAdjust="spacingAndGlyphs">fzf </tspan>
+    <tspan class="ink hit" x="170.8" fill="#0b0b0b" textLength="61.2" lengthAdjust="spacingAndGlyphs">damage</tspan>
+    <tspan class="muted" x="232"   fill="#6b6a66" textLength="10.2" lengthAdjust="spacingAndGlyphs"> </tspan>
+    <tspan class="ink hit" x="242.2" fill="#0b0b0b" textLength="71.4" lengthAdjust="spacingAndGlyphs">puppets</tspan>
+    <tspan class="muted" x="313.6" fill="#6b6a66" textLength="10.2" lengthAdjust="spacingAndGlyphs"> </tspan>
+    <tspan class="ink hit" x="323.8" fill="#0b0b0b" textLength="91.8" lengthAdjust="spacingAndGlyphs">metallica</tspan>
+  </text>
+  <rect class="f1" x="170.8" y="78" width="61.2" height="3" rx="1.5" fill="#2a78d6"/>
+  <rect class="f2" x="242.2" y="78" width="71.4" height="3" rx="1.5" fill="#eb6834"/>
+  <rect class="f3" x="323.8" y="78" width="91.8" height="3" rx="1.5" fill="#1baf7a"/>
+
+  <!-- each word lands somewhere else entirely -->
+  <path class="link k1" stroke="#2a78d6" d="M201.4,88 C201.4,138 548.2,148 548.2,198"/>
+  <path class="link k2" stroke="#eb6834" d="M277.9,88 C277.9,138 441.1,148 441.1,198"/>
+  <path class="link k3" stroke="#1baf7a" d="M369.7,88 C369.7,138 247.3,148 247.3,198"/>
+
+  <!-- what it finds -->
+  <text class="sans label muted" x="40" y="214" fill="#6b6a66">It finds</text>
+  <text class="mono" y="214">
+    <tspan class="muted" x="130"   fill="#6b6a66" textLength="71.4"  lengthAdjust="spacingAndGlyphs">/music/</tspan>
+    <tspan class="ink hit" x="201.4" fill="#0b0b0b" textLength="91.8"  lengthAdjust="spacingAndGlyphs">metallica</tspan>
+    <tspan class="muted" x="293.2" fill="#6b6a66" textLength="112.2" lengthAdjust="spacingAndGlyphs">/master-of-</tspan>
+    <tspan class="ink hit" x="405.4" fill="#0b0b0b" textLength="71.4"  lengthAdjust="spacingAndGlyphs">puppets</tspan>
+    <tspan class="muted" x="476.8" fill="#6b6a66" textLength="40.8"  lengthAdjust="spacingAndGlyphs">/08-</tspan>
+    <tspan class="ink hit" x="517.6" fill="#0b0b0b" textLength="61.2"  lengthAdjust="spacingAndGlyphs">damage</tspan>
+    <tspan class="muted" x="578.8" fill="#6b6a66" textLength="81.6"  lengthAdjust="spacingAndGlyphs">-inc.mp3</tspan>
+  </text>
+  <rect class="f3" x="201.4" y="222" width="91.8" height="3" rx="1.5" fill="#1baf7a"/>
+  <rect class="f2" x="405.4" y="222" width="71.4" height="3" rx="1.5" fill="#eb6834"/>
+  <rect class="f1" x="517.6" y="222" width="61.2" height="3" rx="1.5" fill="#2a78d6"/>
+
+  <text class="sans cap muted" x="130" y="262" fill="#6b6a66">Words can be typed in any order, and match folder names as well as the filename.</text>
+</svg>
