@@ -833,6 +833,27 @@ def is_inside_package?(path)
   PACKAGE_EXTENSIONS.any? { |ext| path.include?("#{ext}/") }
 end
 
+# macOS stores filenames in either NFC or NFD, and both forms sit side by side in
+# the same tree: a name saved by one app may spell an accented or voiced
+# character as a single code point, another as a base character followed by a
+# combining mark. fzf matches bytes, so a query typed in NFC, which is what an
+# IME produces, cannot find a name stored in NFD, and vice versa.
+# Expand each token into an fzf OR group covering both spellings.
+#
+# This has to be done per token. fzf's OR binds tighter than the implicit AND
+# between tokens, so "a | a2 b | b2" means (a OR a2) AND (b OR b2), which is what
+# we want, while wrapping the whole query would give a AND (a2 OR b) AND b2.
+# Tokens that are identical in both forms - anything ASCII, including fzf's own
+# operators - are passed through untouched.
+def unicode_variants(token)
+  nfc = token.unicode_normalize(:nfc)
+  nfd = token.unicode_normalize(:nfd)
+  nfc == nfd ? token : "#{nfc} | #{nfd}"
+rescue ArgumentError, Encoding::CompatibilityError
+  # Invalid byte sequence: fall back to matching the token as typed.
+  token
+end
+
 history_file = File.expand_path "#{ENV['alfred_workflow_data']}/fzf-search-history.txt"
 max_search_history = ENV["max_search_history"].to_i
 
@@ -933,6 +954,9 @@ end
 
 query.strip!
 
+# What fzf is asked to match. The plain query is kept for the history file.
+fzf_query = query.split(/\s+/).map { |token| unicode_variants(token) }.join(" ")
+
 # Store original fd_options to determine search type. Note that the default
 # search passes both -t f and -t d, so "includes -t d" alone does not mean the
 # user asked for directories only.
@@ -957,7 +981,7 @@ else
 end
 
 search_paths.each do |search_path|
-  results_all = `#{Shellwords.escape(fd_path)} . #{Shellwords.escape(search_path)} #{fd_options} #{package_excludes} #{exclude_options} #{fd_options_conf} 2&gt; /dev/null | #{Shellwords.escape(fzf_path)} -e --filter=#{Shellwords.escape(query)} --print0`
+  results_all = `#{Shellwords.escape(fd_path)} . #{Shellwords.escape(search_path)} #{fd_options} #{package_excludes} #{exclude_options} #{fd_options_conf} 2&gt; /dev/null | #{Shellwords.escape(fzf_path)} -e --filter=#{Shellwords.escape(fzf_query)} --print0`
   results += results_all.split("\x00")[0...num_candidates]
 end
 
@@ -969,7 +993,7 @@ unless treat_packages_as_dirs
   elsif file_only
     # File search: add packages separately
     search_paths.each do |search_path|
-      pkg_results = `#{Shellwords.escape(fd_path)} . #{Shellwords.escape(search_path)} -p -t d #{package_excludes} #{exclude_options} #{fd_options_conf} 2&gt; /dev/null | #{Shellwords.escape(fzf_path)} -e --filter=#{Shellwords.escape(query)} --print0`
+      pkg_results = `#{Shellwords.escape(fd_path)} . #{Shellwords.escape(search_path)} -p -t d #{package_excludes} #{exclude_options} #{fd_options_conf} 2&gt; /dev/null | #{Shellwords.escape(fzf_path)} -e --filter=#{Shellwords.escape(fzf_query)} --print0`
       packages = pkg_results.split("\x00").select { |r| is_package?(r) }
       results += packages
     end
