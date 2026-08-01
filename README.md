@@ -16,7 +16,7 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 **Change Log**
 
-- 1.12.0: Modifier keys on a result: ⌘ reveals it in Finder, ⌃ copies its path, ⇧ opens its enclosing folder as before
+- 1.12.0: Modifier keys on a result: ⌘ reveals it in Finder, ⌃ or ⌥ copies its path, ⇧ opens its enclosing folder as before
 - 1.11.0: Search history now records a search when one of its results is chosen, instead of recording every keystroke along the way; repeating a search moves it back to the top rather than adding a duplicate; `fzf-history` collapses repeats, so history files written by earlier versions read as a list of searches too
 - 1.10.0: Filenames stored in either Unicode normalization form are now matched, so a query typed through a Japanese IME finds names macOS saved in decomposed form; optional candidate cache makes repeat searches on large search paths instant; results can be previewed with Quick Look; packages/bundles are handled correctly (see below); queries are no longer passed through a shell
 - 1.9.2: Show a clear error message in Alfred and the debugger when `fd` or `fzf` cannot be located, instead of silently returning no results
@@ -104,7 +104,9 @@ __\*\*__ By default (unchecked), packages/bundles are treated as files and exclu
 | ⏎ | Open the file or folder |
 | ⇧⏎ | Open its enclosing folder |
 | ⌘⏎ | Reveal it in Finder |
-| ⌃⏎ | Copy its path to the clipboard |
+| ⌃⏎ or ⌥⏎ | Copy its path to the clipboard |
+
+Copying is on two modifiers because Alfred's "Show Actions with Control" setting, if you have it on, opens the action panel before ⌃ reaches the workflow. Whichever of the two you press, you get the path.
 
 Alfred's own preview key also works on a result, so you can look inside a file without opening it.
 
