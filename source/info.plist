@@ -618,7 +618,7 @@
 				<key>matchmode</key>
 				<integer>1</integer>
 				<key>matchstring</key>
-				<string>\/[^\/]+$</string>
+				<string>\/[^\/]+\/?$</string>
 				<key>regexcaseinsensitive</key>
 				<false/>
 				<key>regexmultiline</key>
@@ -822,8 +822,11 @@ unless custom_extensions.empty?
   end
 end
 
+# fd 8.4.0 and later print directories with a trailing path separator
+# ("/Applications/Mail.app/"), so strip it before matching the extension.
 def is_package?(path)
-  PACKAGE_EXTENSIONS.any? { |ext| path.end_with?(ext) }
+  name = path.sub(%r{/\z}, "")
+  PACKAGE_EXTENSIONS.any? { |ext| name.end_with?(ext) }
 end
 
 def is_inside_package?(path)
@@ -930,37 +933,43 @@ end
 
 query.strip!
 
-# Store original fd_options to determine search type
+# Store original fd_options to determine search type. Note that the default
+# search passes both -t f and -t d, so "includes -t d" alone does not mean the
+# user asked for directories only.
 search_type = fd_options.strip
+directory_only = search_type.include?('-t d') &amp;&amp; !search_type.include?('-t f')
+file_only      = search_type.include?('-t f') &amp;&amp; !search_type.include?('-t d')
 
 results = []
 
 # Build exclude patterns for packages when treat_packages_as_dirs is off
 unless treat_packages_as_dirs
-  # Exclude package contents
-  package_excludes = PACKAGE_EXTENSIONS.map { |ext| "--exclude '*#{ext}/*'" }.join(' ')
-  # Additionally exclude packages themselves when searching for directories
-  if search_type.include?('-t d')
-    package_excludes += ' ' + PACKAGE_EXTENSIONS.map { |ext| "--exclude '*#{ext}'" }.join(' ')
+  # Exclude package contents. The '**/' prefix is required: an fd --exclude glob
+  # that contains a slash is anchored to the search root, so '*.app/*' on its own
+  # would only match packages sitting directly in it.
+  package_excludes = PACKAGE_EXTENSIONS.map { |ext| "--exclude '**/*#{ext}/*'" }.join(' ')
+  # Additionally exclude packages themselves when searching for directories only
+  if directory_only
+    package_excludes += ' ' + PACKAGE_EXTENSIONS.map { |ext| "--exclude '**/*#{ext}'" }.join(' ')
   end
 else
   package_excludes = ""
 end
 
 search_paths.each do |search_path|
-  results_all = `#{fd_path} . "#{search_path}" #{fd_options} #{package_excludes} #{exclude_options} #{fd_options_conf} 2&gt; /dev/null | #{fzf_path} -e --filter="#{query}" --print0`
+  results_all = `#{Shellwords.escape(fd_path)} . #{Shellwords.escape(search_path)} #{fd_options} #{package_excludes} #{exclude_options} #{fd_options_conf} 2&gt; /dev/null | #{Shellwords.escape(fzf_path)} -e --filter=#{Shellwords.escape(query)} --print0`
   results += results_all.split("\x00")[0...num_candidates]
 end
 
 # Post-process results when treat_packages_as_dirs is off
 unless treat_packages_as_dirs
-  if search_type.include?('-t d')
+  if directory_only
     # Directory search: exclude packages
     results.reject! { |r| is_package?(r) }
-  elsif search_type.include?('-t f')
+  elsif file_only
     # File search: add packages separately
     search_paths.each do |search_path|
-      pkg_results = `#{fd_path} . "#{search_path}" -p -t d #{exclude_options} #{fd_options_conf} 2&gt; /dev/null | #{fzf_path} -e --filter="#{query}" --print0`
+      pkg_results = `#{Shellwords.escape(fd_path)} . #{Shellwords.escape(search_path)} -p -t d #{package_excludes} #{exclude_options} #{fd_options_conf} 2&gt; /dev/null | #{Shellwords.escape(fzf_path)} -e --filter=#{Shellwords.escape(query)} --print0`
       packages = pkg_results.split("\x00").select { |r| is_package?(r) }
       results += packages
     end
