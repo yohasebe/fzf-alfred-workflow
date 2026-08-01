@@ -806,6 +806,8 @@ require "json"
 require "time"
 require "fileutils"
 require "shellwords"
+require "open3"
+require "digest"
 
 # Package/Bundle extensions (default list)
 PACKAGE_EXTENSIONS = ['.app', '.bundle', '.framework', '.plugin', '.kext',
@@ -852,6 +854,74 @@ def unicode_variants(token)
 rescue ArgumentError, Encoding::CompatibilityError
   # Invalid byte sequence: fall back to matching the token as typed.
   token
+end
+
+# fd and fzf are run directly rather than through a shell, so nothing the user
+# types can be interpreted as a command. The option strings in the workflow
+# configuration are still shell-flavoured, so they are split the way a shell
+# would - and a leading ~ is expanded here, since no shell is left to do it.
+def split_options(str)
+  Shellwords.split(str.to_s).map do |token|
+    token.start_with?("~") ? File.expand_path(token) : token
+  end
+rescue ArgumentError =&gt; e
+  STDERR.puts "fzf workflow: ignoring malformed options #{str.inspect} (#{e.message})"
+  []
+end
+
+# fd's stderr is surfaced to the Alfred debugger instead of being discarded, so
+# permission errors and bad options are diagnosable.
+def run_fd(fd_args)
+  out, err, _status = Open3.capture3(*fd_args, binmode: true)
+  STDERR.puts(err) unless err.empty?
+  out
+end
+
+# Walking the search path is by far the most expensive part of a search, and the
+# script filter re-runs on every keystroke, so the same tree is walked again for
+# every character typed. When cache_ttl is set, the candidate list is reused for
+# that many seconds.
+def candidate_list(fd_args, ttl)
+  return run_fd(fd_args) if ttl &lt;= 0
+
+  dir = ENV["alfred_workflow_cache"].to_s
+  return run_fd(fd_args) if dir.empty?
+
+  FileUtils.mkdir_p(dir) unless File.directory?(dir)
+  # Everything that changes what fd would print is part of the key, so changing a
+  # search path or an exclude pattern cannot serve a stale list.
+  file = File.join(dir, "candidates-#{Digest::MD5.hexdigest(fd_args.join("\x00"))}.txt")
+
+  return File.binread(file) if File.exist?(file) &amp;&amp; (Time.now - File.mtime(file)) &lt; ttl
+
+  list = run_fd(fd_args)
+  # Write to a private temporary file and rename it into place. Alfred terminates
+  # the running script on every keystroke, so a plain write could be interrupted
+  # partway through and leave a truncated list to be served as if it were whole.
+  tmp = "#{file}.#{Process.pid}"
+  File.binwrite(tmp, list)
+  File.rename(tmp, file)
+  # A run killed before the rename leaves its temporary file behind; clear out any
+  # that are old enough to be certain no live run still owns them.
+  Dir.glob("#{file}.*").each do |orphan|
+    begin
+      File.unlink(orphan) if Time.now - File.mtime(orphan) &gt; 300
+    rescue SystemCallError
+      nil
+    end
+  end
+  list
+rescue SystemCallError =&gt; e
+  STDERR.puts "fzf workflow: cache unavailable (#{e.message})"
+  run_fd(fd_args)
+end
+
+def filter_candidates(fzf_path, query, list)
+  out, _err, _status = Open3.capture3(fzf_path, "-e", "--filter", query,
+                                      "--read0", "--print0",
+                                      stdin_data: list, binmode: true)
+  # fzf exits non-zero when nothing matches, which is not an error here.
+  out.split("\x00").map { |path| path.force_encoding(Encoding::UTF_8) }
 end
 
 history_file = File.expand_path "#{ENV['alfred_workflow_data']}/fzf-search-history.txt"
@@ -936,9 +1006,11 @@ end.compact.uniq
 fd_options       = ENV["fd_options"]      || ""
 fd_options_conf  = ENV["fd_options_conf"] || ""
 exclude_patterns    = ENV["exclude_patterns"]   || ""
-exclude_options  = exclude_patterns.split(/\s*;\s*/).reject(&amp;:empty?).map { |p| "--exclude #{Shellwords.shellescape(p)}" }.join(' ')
+exclude_options  = exclude_patterns.split(/\s*;\s*/).reject(&amp;:empty?).flat_map { |p| ["--exclude", p] }
 num_candidates   = ENV["num_candidates"]  || "100"
 num_candidates  = num_candidates.to_i
+num_candidates  = 100 if num_candidates &lt;= 0
+cache_ttl        = ENV["cache_ttl"].to_i
 
 keys = ARGV.join(" ").gsub("　", " ").split(/\s+/)
 query = +""
@@ -964,43 +1036,48 @@ search_type = fd_options.strip
 directory_only = search_type.include?('-t d') &amp;&amp; !search_type.include?('-t f')
 file_only      = search_type.include?('-t f') &amp;&amp; !search_type.include?('-t d')
 
-results = []
-
 # Build exclude patterns for packages when treat_packages_as_dirs is off
 unless treat_packages_as_dirs
   # Exclude package contents. The '**/' prefix is required: an fd --exclude glob
   # that contains a slash is anchored to the search root, so '*.app/*' on its own
   # would only match packages sitting directly in it.
-  package_excludes = PACKAGE_EXTENSIONS.map { |ext| "--exclude '**/*#{ext}/*'" }.join(' ')
+  package_excludes = PACKAGE_EXTENSIONS.flat_map { |ext| ["--exclude", "**/*#{ext}/*"] }
   # Additionally exclude packages themselves when searching for directories only
   if directory_only
-    package_excludes += ' ' + PACKAGE_EXTENSIONS.map { |ext| "--exclude '**/*#{ext}'" }.join(' ')
+    package_excludes += PACKAGE_EXTENSIONS.flat_map { |ext| ["--exclude", "**/*#{ext}"] }
   end
 else
-  package_excludes = ""
+  package_excludes = []
 end
 
-search_paths.each do |search_path|
-  results_all = `#{Shellwords.escape(fd_path)} . #{Shellwords.escape(search_path)} #{fd_options} #{package_excludes} #{exclude_options} #{fd_options_conf} 2&gt; /dev/null | #{Shellwords.escape(fzf_path)} -e --filter=#{Shellwords.escape(fzf_query)} --print0`
-  results += results_all.split("\x00")[0...num_candidates]
-end
+# A file-only search still has to offer packages, which are directories. Ask fd
+# for both types in one pass and tell them apart afterwards by the trailing
+# separator, rather than walking the whole tree a second time just to find them.
+collect_packages = file_only &amp;&amp; !treat_packages_as_dirs
+fd_type_options  = split_options(fd_options)
+fd_type_options += ["-t", "d"] if collect_packages
+
+# One fd invocation covers every search path, so candidates from different paths
+# are ranked against each other and the limit applies to the search as a whole
+# rather than to each path separately.
+fd_args = [fd_path, ".", *search_paths, *fd_type_options, *package_excludes,
+           *exclude_options, *split_options(fd_options_conf), "-0"]
+
+results = filter_candidates(fzf_path, fzf_query, candidate_list(fd_args, cache_ttl))
 
 # Post-process results when treat_packages_as_dirs is off
 unless treat_packages_as_dirs
   if directory_only
     # Directory search: exclude packages
     results.reject! { |r| is_package?(r) }
-  elsif file_only
-    # File search: add packages separately
-    search_paths.each do |search_path|
-      pkg_results = `#{Shellwords.escape(fd_path)} . #{Shellwords.escape(search_path)} -p -t d #{package_excludes} #{exclude_options} #{fd_options_conf} 2&gt; /dev/null | #{Shellwords.escape(fzf_path)} -e --filter=#{Shellwords.escape(fzf_query)} --print0`
-      packages = pkg_results.split("\x00").select { |r| is_package?(r) }
-      results += packages
-    end
-    results = results[0...num_candidates]
+  elsif collect_packages
+    # File search: keep files, and keep directories only when they are packages
+    results.select! { |r| !r.end_with?("/") || is_package?(r) }
   end
   # For default search (both files and dirs), packages are already included but their contents are excluded
 end
+
+results = results.first(num_candidates)
 
 items = []
 type = "file:skipcheck"
@@ -1019,7 +1096,9 @@ if results.size &gt; 0
       "icon": {
         "type": "fileicon",
         "path": result
-      }
+      },
+      # Lets Alfred preview the result in place with its Quick Look key.
+      "quicklookurl": result
     }
     if memorize
       # uid = Digest::MD5.hexdigest(result)
@@ -1912,6 +1991,27 @@ NOTE: If a home directory is specified, ~/Library will be ignored for better per
 			<key>variable</key>
 			<string>exclude_patterns</string>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>0</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Reuse the list of files found by fd for this many seconds instead of walking the search path again on every keystroke. On a large search path this is the difference between a search that takes a second or more and one that is instant, at the cost of files created in the last few seconds not showing up yet. Set to 0 to walk the search path every time. [default: 0, suggested: 60]</string>
+			<key>label</key>
+			<string>Candidate Cache (seconds)</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>cache_ttl</string>
+		</dict>
 	</array>
 	<key>variables</key>
 	<dict>
@@ -1925,7 +2025,7 @@ NOTE: If a home directory is specified, ~/Library will be ignored for better per
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.9.2</string>
+	<string>1.10.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/yohasebe/fzf-alfred-workflow</string>
 </dict>

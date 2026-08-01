@@ -10,11 +10,13 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 - 🧠 **Memorization**: Alfred manages the order of items according to *past usage*.
 - 🗂 **Folder Action**: Search directory can be set in user preferences or specified dynamically in a *folder action*.
 - 📝 **Editable Search History**: *Search history* is automatically recorded and can be edited later.
+- 🌏 **Unicode-Normalization Aware**: macOS saves filenames in either composed or decomposed form, often side by side in the same folder. Search keys match *both*, so a name typed through a Japanese IME finds files either way.
 
 <img src='./files/screenshot.gif' style='width:500px;'/>
 
 **Change Log**
 
+- 1.10.0: Filenames stored in either Unicode normalization form are now matched, so a query typed through a Japanese IME finds names macOS saved in decomposed form; optional candidate cache makes repeat searches on large search paths instant; results can be previewed with Quick Look; packages/bundles are handled correctly (see below); queries are no longer passed through a shell
 - 1.9.2: Show a clear error message in Alfred and the debugger when `fd` or `fzf` cannot be located, instead of silently returning no results
 - 1.9.1: Auto-detect `fd` and `fzf` in common Homebrew paths as a safety net for unusual setups (issue #10)
 - 1.9.0: Exclude Pattern(s) setting added to easily exclude common folders (e.g., `node_modules`, `.git`) from search results
@@ -42,7 +44,7 @@ There are two ways to install this workflow:
 
 ## Downloads
 
-Current Version: **1.9.2**
+Current Version: **1.10.0**
 
 - [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
 
@@ -75,10 +77,13 @@ Set values to the following options in `User Configuration` (Alfred 5):
 | Max Num of Past Searches      | Maximum number of past search history retained (default: 1000)                      |
 | Exclude Pattern(s)            | Folder/file name patterns to exclude from search, separated by semicolons (default: `node_modules;.git;`) __\*\*\*__ |
 | Treat Packages as Directories | If checked, packages/bundles (.app, .key, .pages, etc.) are treated as directories and their contents are searchable (default: unchecked) __\*\*__ |
+| Candidate Cache (seconds)     | Reuse the file list found by `fd` for this many seconds instead of walking the search path again on every keystroke (default: `0`, i.e. disabled) __\*\*\*\*__ |
 
 __\*__ Search directory can be also specified dynamically in a [folder action](https://www.alfredapp.com/universal-actions/).
 
 __\*\*\*__ Patterns are matched by name against all files and folders in the search tree, regardless of their location. For example, `node_modules` excludes every `node_modules` folder and its contents. Glob wildcards are supported (e.g., `*.log`, `*cache*`).
+
+__\*\*\*\*__ Walking the search path is the slowest part of a search, and it happens again for every character you type. With a cache of, say, `60`, the walk happens at most once a minute and everything in between is instant. The trade-off is that a file created in the last few seconds may not appear yet. Leave it at `0` if you want every search to see the current state of the disk.
 
 __\*\*__ By default (unchecked), packages/bundles are treated as files and excluded from directory searches using `^d` or `-d`. When searching for files with `^f` or `-f`, packages appear as files but their contents are not searchable. See [Advanced Usage](#advanced-usage) for more details on package handling.
 
