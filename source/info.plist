@@ -49,7 +49,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>D5377AF7-4CB9-426E-A0E6-C4DB163F0203</string>
+				<string>B3E9C7D4-5A26-4F81-9E0C-7D4A1F6B2C58</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -98,7 +98,7 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>D5377AF7-4CB9-426E-A0E6-C4DB163F0203</string>
+				<string>B3E9C7D4-5A26-4F81-9E0C-7D4A1F6B2C58</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -301,6 +301,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>259D4D63-7DA6-42E5-99A5-F20E276837C7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B3E9C7D4-5A26-4F81-9E0C-7D4A1F6B2C58</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D5377AF7-4CB9-426E-A0E6-C4DB163F0203</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -786,7 +799,7 @@ print jsonout</string>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>queuedelaycustom</key>
@@ -925,29 +938,22 @@ def filter_candidates(fzf_path, query, list)
 end
 
 history_file = File.expand_path "#{ENV['alfred_workflow_data']}/fzf-search-history.txt"
-max_search_history = ENV["max_search_history"].to_i
 
-def prepend_line_to_file(file_path, line_to_prepend, max_search)
-  dirname = File.dirname(file_path)
-  unless File.directory?(dirname)
-    FileUtils.mkdir_p(dirname)
+# Past searches, most recent first. Recording happens downstream, once a result
+# is actually chosen; this script only reads what is already there.
+def recent_searches(file_path, limit)
+  return [] unless File.exist?(file_path)
+
+  File.readlines(file_path).each_with_object([]) do |line, entries|
+    recorded_at, search = line.split("|", 2)
+    next if search.nil?
+    search = search.strip
+    next if search.empty?
+    entries &lt;&lt; [search, recorded_at.strip]
+    break entries if entries.size &gt;= limit
   end
-
-  file_contents = File.readlines(file_path) if File.exist?(file_path)
-  file_contents = [] unless file_contents
-
-  if max_search &lt;= 0
-    file_contents = []
-  elsif file_contents.size &gt;= max_search
-    file_contents = file_contents[0...(max_search - 1)]
-    file_contents.unshift line_to_prepend
-  else
-    file_contents.unshift line_to_prepend
-  end
-
-  File.open(file_path, "w") do |file|
-    file.puts(file_contents) if file_contents
-  end
+rescue SystemCallError
+  []
 end
 
 # Locate an executable, tolerating Alfred's minimal PATH.
@@ -996,6 +1002,11 @@ end
 memorize      = ENV["memorize"].to_i == 1 ? true : false
 treat_packages_as_dirs = ENV["treat_packages_as_dirs"].to_i == 1 ? true : false
 
+# Defaults on. An installation that predates this setting has no value for it at
+# all, and that should behave like a fresh one rather than like an opt-out.
+history_on_empty = ENV["history_on_empty"].to_s.strip
+history_on_empty = history_on_empty.empty? ? true : history_on_empty.to_i == 1
+
 search_paths  = ENV["search_home"] || ENV["search_path"]
 search_paths  = search_paths.split(/\s*;\s*/)
 search_paths = search_paths.map do |search_path|
@@ -1025,6 +1036,29 @@ keys.each do |key|
 end
 
 query.strip!
+
+# Nothing typed yet. Rather than leaving the window empty, offer the searches
+# that previously led somewhere. These items are not actionable: choosing one
+# autocompletes it into the search field, and the search then runs as usual.
+# A bare directive such as "^d" is a real search, so it does not land here.
+if keys.empty?
+  items =
+    if history_on_empty
+      recent_searches(history_file, num_candidates).map do |search, recorded_at|
+        {
+          "title"        =&gt; search,
+          "subtitle"     =&gt; "Search again  ·  #{recorded_at}",
+          "valid"        =&gt; false,
+          "autocomplete" =&gt; search
+        }
+      end
+    else
+      []
+    end
+  items &lt;&lt; { "title" =&gt; "Input search keys (space separated)", "valid" =&gt; false } if items.empty?
+  print({"items" =&gt; items}.to_json)
+  exit 0
+end
 
 # What fzf is asked to match. The plain query is kept for the history file.
 fzf_query = query.split(/\s+/).map { |token| unicode_variants(token) }.join(" ")
@@ -1106,9 +1140,6 @@ if results.size &gt; 0
     end
     items &lt;&lt; item
   end
-  unless ENV["history_search"]
-    prepend_line_to_file(history_file, "#{Time.new} | #{query}", max_search_history)
-  end
 else
   items &lt;&lt; {
     "title": "No results found",
@@ -1116,7 +1147,11 @@ else
   }
 end
 
-jsonout = {"items": items}.to_json 
+# The search that produced these results, carried alongside them so that the
+# action which records the history knows what was searched for. The script filter
+# cannot record it itself: it re-runs on every keystroke, and recording there
+# means recording every prefix of every query, whether or not anything came of it.
+jsonout = {"variables": {"fzf_search_key": query}, "items": items}.to_json
 
 print jsonout
 
@@ -1140,6 +1175,64 @@ print jsonout
 			<string>259D4D63-7DA6-42E5-99A5-F20E276837C7</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string># frozen_string_literal: true
+
+require "fileutils"
+
+# Runs when a result is chosen, not while the query is being typed. The script
+# filter re-runs on every keystroke, so recording there stored every prefix of
+# every search whether or not anything came of it. Recording here keeps the
+# searches that actually led somewhere.
+path   = ARGV[0].to_s
+search = ENV["fzf_search_key"].to_s.strip
+max_search_history = ENV["max_search_history"].to_i
+
+unless search.empty?
+  file = File.expand_path "#{ENV['alfred_workflow_data']}/fzf-search-history.txt"
+  begin
+    dirname = File.dirname(file)
+    FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
+
+    entries = File.exist?(file) ? File.readlines(file) : []
+    # Repeating a search moves it back to the top rather than adding another
+    # copy: this is a list of searches, not of the times each one was run.
+    entries.reject! do |line|
+      _, recorded = line.split("|", 2)
+      recorded &amp;&amp; recorded.strip == search
+    end
+    entries.unshift("#{Time.new} | #{search}\n")
+    entries = max_search_history &gt; 0 ? entries.first(max_search_history) : []
+
+    File.open(file, "w") { |f| f.puts(entries) }
+  rescue SystemCallError =&gt; e
+    STDERR.puts "fzf workflow: could not record history (#{e.message})"
+  end
+end
+
+# Pass the path through unchanged so the next action still receives it.
+print path</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>B3E9C7D4-5A26-4F81-9E0C-7D4A1F6B2C58</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1439,7 +1532,7 @@ end</string>
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>keyword</key>
 				<string>fzf</string>
 				<key>subtext</key>
@@ -1788,6 +1881,15 @@ Check out the [README](https://github.com/yohasebe/fzf-alfred-workflow) on the G
 			<key>ypos</key>
 			<real>385</real>
 		</dict>
+		<key>B3E9C7D4-5A26-4F81-9E0C-7D4A1F6B2C58</key>
+		<dict>
+			<key>note</key>
+			<string>Record the search that found this result</string>
+			<key>xpos</key>
+			<real>1660</real>
+			<key>ypos</key>
+			<real>270</real>
+		</dict>
 		<key>C16ABD65-D706-4DC9-A84E-751005A2C29B</key>
 		<dict>
 			<key>xpos</key>
@@ -2012,6 +2114,25 @@ NOTE: If a home directory is specified, ~/Library will be ignored for better per
 			<key>variable</key>
 			<string>cache_ttl</string>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string>Show recent searches when nothing has been typed</string>
+			</dict>
+			<key>description</key>
+			<string>If checked, opening the search with an empty query lists your recent searches. Choosing one fills it into the search field so it runs again. [default = checked]</string>
+			<key>label</key>
+			<string>Recent Searches</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>history_on_empty</string>
+		</dict>
 	</array>
 	<key>variables</key>
 	<dict>
@@ -2025,7 +2146,7 @@ NOTE: If a home directory is specified, ~/Library will be ignored for better per
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.10.0</string>
+	<string>1.11.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/yohasebe/fzf-alfred-workflow</string>
 </dict>

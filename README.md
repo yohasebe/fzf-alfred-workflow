@@ -16,6 +16,7 @@ An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories
 
 **Change Log**
 
+- 1.11.0: Search history now records a search when one of its results is chosen, instead of recording every keystroke along the way; repeating a search moves it back to the top rather than adding a duplicate; opening the search with an empty query lists your recent searches
 - 1.10.0: Filenames stored in either Unicode normalization form are now matched, so a query typed through a Japanese IME finds names macOS saved in decomposed form; optional candidate cache makes repeat searches on large search paths instant; results can be previewed with Quick Look; packages/bundles are handled correctly (see below); queries are no longer passed through a shell
 - 1.9.2: Show a clear error message in Alfred and the debugger when `fd` or `fzf` cannot be located, instead of silently returning no results
 - 1.9.1: Auto-detect `fd` and `fzf` in common Homebrew paths as a safety net for unusual setups (issue #10)
@@ -44,7 +45,7 @@ There are two ways to install this workflow:
 
 ## Downloads
 
-Current Version: **1.10.0**
+Current Version: **1.11.0**
 
 - [⤓ Download Workflow for Alfred 5](https://github.com/yohasebe/fzf-alfred-workflow/raw/main/fzf-alfred-workfow.alfredworkflow)
 
@@ -78,6 +79,7 @@ Set values to the following options in `User Configuration` (Alfred 5):
 | Exclude Pattern(s)            | Folder/file name patterns to exclude from search, separated by semicolons (default: `node_modules;.git;`) __\*\*\*__ |
 | Treat Packages as Directories | If checked, packages/bundles (.app, .key, .pages, etc.) are treated as directories and their contents are searchable (default: unchecked) __\*\*__ |
 | Candidate Cache (seconds)     | Reuse the file list found by `fd` for this many seconds instead of walking the search path again on every keystroke (default: `0`, i.e. disabled) __\*\*\*\*__ |
+| Recent Searches               | If checked, opening the search with an empty query lists your recent searches (default: checked) |
 
 __\*__ Search directory can be also specified dynamically in a [folder action](https://www.alfredapp.com/universal-actions/).
 
@@ -129,7 +131,9 @@ Select a folder in a Finder window or Alfred folder browser. Then press the hotk
 
 ## List and Edit Search History
 
-The search key is automatically recorded in a file name (`fzf-search-history.txt`) in the workflow data directory (only if more than one search result is found).
+The search key is automatically recorded in a file named `fzf-search-history.txt` in the workflow data directory. A search is recorded when you *choose* one of its results, not while you are typing it, so the history holds searches that actually led somewhere rather than every prefix along the way. Repeating a search moves it back to the top of the list instead of adding a second copy.
+
+If "Recent Searches" is enabled, opening the search with an empty query lists these entries directly. Choosing one fills it into the search field so it runs again.
 
 ### Using keyword
 
