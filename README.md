@@ -2,7 +2,7 @@
 
 An [Alfred](https://www.alfredapp.com/) workflow to fuzzy find files/directories using [fzf](https://github.com/junegunn/fzf) and [fd](https://github.com/sharkdp/fd).
 
-<img src='./files/how-it-works.svg' style='width:730px;' alt='The query "fzf damage puppets metallica" typed in the reverse of the order the words appear in the path, with connectors crossing to each match'/>
+<img src='./files/fzf-alfred-screenshot.png' style='width:500px;'/>
 
 ## Features
 
@@ -11,6 +11,8 @@ An [Alfred](https://www.alfredapp.com/) workflow to fuzzy find files/directories
 - 🗂 **Folder Action**: Search directory can be set in user preferences or specified dynamically in a *folder action*.
 - 📝 **Editable Search History**: *Search history* is automatically recorded and can be edited later.
 - 🌏 **Unicode-Normalization Aware**: macOS saves filenames in either composed or decomposed form, often side by side in the same folder. Search keys match *both*, so a name typed through a Japanese IME finds files either way.
+
+<img src='./files/how-it-works.svg' style='width:730px;' alt='The query "fzf damage puppets metallica" typed in the reverse of the order the words appear in the path, with connectors crossing to each match'/>
 
 <img src='./files/screenshot.gif' style='width:500px;'/>
 
