@@ -1,0 +1,1899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.yohasebe.fzf-alfred-workflow</string>
+	<key>connections</key>
+	<dict>
+		<key>006823D4-BB3C-4562-86B6-3F447113F12F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E62785EE-B03C-40BE-AAC1-A07D76E187A4</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>04355CF0-DDB0-467C-BC01-7AD99A234DAC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C16ABD65-D706-4DC9-A84E-751005A2C29B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>04F31BBA-796D-44C6-9219-40D7F9A57FA1</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3EEDF265-20D8-451A-9A23-36BF14369A9C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>11793B10-1541-4944-B0A9-0ABC8A1CAADB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D5377AF7-4CB9-426E-A0E6-C4DB163F0203</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>1AE6F3E6-E6EC-40DD-B69C-D3657B95003A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9C115F60-CC19-498C-9FF3-14E9F22875E8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>20492BCC-B690-462F-B83E-97C1BAD8BA30</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>630BBCB5-1B8A-4367-81AA-84277D5A2C3E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>259D4D63-7DA6-42E5-99A5-F20E276837C7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>11793B10-1541-4944-B0A9-0ABC8A1CAADB</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Open enclosing folder</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D5377AF7-4CB9-426E-A0E6-C4DB163F0203</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>39E6D860-0B1E-4455-BB4C-DC593100A7BA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>506A996E-5844-4D93-8FCB-54BE74BD9950</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>404E3A3E-9A22-46D5-BB10-388BF451EA08</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D1DEEC3B-9BEE-423A-AF8F-BB79D6616D83</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>4907DDAE-992E-44DF-9E2B-9B1E0B57B2AB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9940A94C-59B9-46C8-8BDF-7D35747F9067</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>506A996E-5844-4D93-8FCB-54BE74BD9950</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F22B198B-7717-459A-8E74-49AF69EF4144</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>5E1FDF04-C49F-4E17-A831-5AABB827BC41</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>70117868-EDD8-4B93-B458-DD056356164E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>CABC4E80-CAAF-4DF0-9511-998556025F97</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Search files only</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>1AE6F3E6-E6EC-40DD-B69C-D3657B95003A</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Search directories  only</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>630BBCB5-1B8A-4367-81AA-84277D5A2C3E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>04F31BBA-796D-44C6-9219-40D7F9A57FA1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>687B768F-D0E6-47F8-AEA9-E85E5D5CB1CD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>259D4D63-7DA6-42E5-99A5-F20E276837C7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>70117868-EDD8-4B93-B458-DD056356164E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9C115F60-CC19-498C-9FF3-14E9F22875E8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>72963530-89B9-432D-BEFD-851E05C5F9A9</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EEC3AB57-821A-4731-B4BF-52D5C9911061</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>80D61B0F-F87F-4B96-81DD-40B8192BA81F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>72963530-89B9-432D-BEFD-851E05C5F9A9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>89411B08-B4CF-46D4-AE76-85DC1E10FF3F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E394B23D-5752-439F-9BBA-69B650EF76F3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>9940A94C-59B9-46C8-8BDF-7D35747F9067</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EEC3AB57-821A-4731-B4BF-52D5C9911061</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>9C115F60-CC19-498C-9FF3-14E9F22875E8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EEC3AB57-821A-4731-B4BF-52D5C9911061</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>AA717B32-2B75-49DA-8592-0E8E892F13E1</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>259D4D63-7DA6-42E5-99A5-F20E276837C7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C16ABD65-D706-4DC9-A84E-751005A2C29B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E394B23D-5752-439F-9BBA-69B650EF76F3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C1AC1BDB-11DC-4B77-9465-64AC697F5571</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EEC3AB57-821A-4731-B4BF-52D5C9911061</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>CABC4E80-CAAF-4DF0-9511-998556025F97</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9C115F60-CC19-498C-9FF3-14E9F22875E8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D1DEEC3B-9BEE-423A-AF8F-BB79D6616D83</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>72963530-89B9-432D-BEFD-851E05C5F9A9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E394B23D-5752-439F-9BBA-69B650EF76F3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E955583B-5155-40B4-918E-4C13BAC0B095</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>80D61B0F-F87F-4B96-81DD-40B8192BA81F</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Search files only</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D1DEEC3B-9BEE-423A-AF8F-BB79D6616D83</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Search directories only</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E62785EE-B03C-40BE-AAC1-A07D76E187A4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C1AC1BDB-11DC-4B77-9465-64AC697F5571</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E955583B-5155-40B4-918E-4C13BAC0B095</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>72963530-89B9-432D-BEFD-851E05C5F9A9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>EEC3AB57-821A-4731-B4BF-52D5C9911061</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>39E6D860-0B1E-4455-BB4C-DC593100A7BA</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F22B198B-7717-459A-8E74-49AF69EF4144</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>AA717B32-2B75-49DA-8592-0E8E892F13E1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>BCAA363E-FF3B-4B5A-87D6-E030AB0C1270</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>687B768F-D0E6-47F8-AEA9-E85E5D5CB1CD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Yoichiro Hasebe</string>
+	<key>description</key>
+	<string>An Alfred workflow to fuzzy find files/directories using fzf and fd</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>fzf-alfred-workfow</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<true/>
+				<key>variables</key>
+				<dict>
+					<key>fd_options</key>
+					<string>-p -t f -t d</string>
+					<key>target</key>
+					<string>(files and folders)</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>70117868-EDD8-4B93-B458-DD056356164E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>subtext</key>
+				<string>^d → directories | ^f  → files | default → both</string>
+				<key>text</key>
+				<string>FZF Fallback Search</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.fallback</string>
+			<key>uid</key>
+			<string>5E1FDF04-C49F-4E17-A831-5AABB827BC41</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<true/>
+				<key>variables</key>
+				<dict>
+					<key>fd_options</key>
+					<string>-p -t f</string>
+					<key>target</key>
+					<string>(files)</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>CABC4E80-CAAF-4DF0-9511-998556025F97</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.junction</string>
+			<key>uid</key>
+			<string>9C115F60-CC19-498C-9FF3-14E9F22875E8</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<true/>
+				<key>variables</key>
+				<dict>
+					<key>fd_options</key>
+					<string>-p -t d</string>
+					<key>target</key>
+					<string>(files and folders)</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>1AE6F3E6-E6EC-40DD-B69C-D3657B95003A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>1</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedApps</key>
+				<array>
+					<string>com.apple.finder</string>
+					<string>com.runningwithcrayons.Alfred</string>
+				</array>
+				<key>relatedAppsMode</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>4907DDAE-992E-44DF-9E2B-9B1E0B57B2AB</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>fd_options</key>
+					<string>-p -t f -t d</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>9940A94C-59B9-46C8-8BDF-7D35747F9067</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>\/[^\/]+$</string>
+				<key>regexcaseinsensitive</key>
+				<false/>
+				<key>regexmultiline</key>
+				<false/>
+				<key>replacestring</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.replace</string>
+			<key>uid</key>
+			<string>11793B10-1541-4944-B0A9-0ABC8A1CAADB</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>function check_called_post_startup() {
+  mkdir -p "${alfred_workflow_data}"
+
+  local check_file="${alfred_workflow_data}/check_called_post_startup"
+
+  local boot_time=$(sysctl -n kern.boottime | awk '{print $4}' | sed 's/,//')
+
+  if [[ -f "$check_file" ]]; then
+    local file_mod_time=$(stat -f "%m" "$check_file")
+
+    if (( file_mod_time &gt; boot_time )); then
+      echo -n "true"
+      return 0
+    else
+      touch "$check_file"
+      echo -n "false"
+      return 1
+    fi
+  else
+    touch "$check_file"
+    echo -n "false"
+    return 1
+  fi
+}
+
+check_called_post_startup</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>11</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>506A996E-5844-4D93-8FCB-54BE74BD9950</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>fzf-history</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>require "json"
+
+file = File.expand_path "#{ENV["alfred_workflow_data"]}/fzf-search-history.txt"
+
+items = []
+
+unless File.exist?(file)
+  items &lt;&lt; {
+    "title": "No results found",
+    "valid": false
+  }
+end
+
+results = File.exist?(file) ? File.readlines(file) : nil
+
+type = "file:skipcheck"
+
+if results &amp;&amp; results.size &gt; 0
+  results.each do |result|
+    next unless result.index("|")
+    datetime, hist = result.split("|", 2)
+    next if datetime == "" || hist == ""
+    title = hist.strip
+    subtitle = datetime.strip
+    item =  {
+      "valid": true,
+      "type": type,
+      "title": title,
+      "subtitle": subtitle,
+      "arg": hist,
+    }
+    items &lt;&lt; item
+  end
+end
+
+if items.empty?
+  items &lt;&lt; {
+    "title": "No results found",
+    "valid": false
+  }
+end
+
+jsonout = {"items": items}.to_json 
+
+print jsonout</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Show the list of past FZF search keys</string>
+				<key>title</key>
+				<string>FZF Search History</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>E62785EE-B03C-40BE-AAC1-A07D76E187A4</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string>{var:wait_message}</string>
+				<key>script</key>
+				<string># frozen_string_literal: true
+
+require "json"
+require "time"
+require "fileutils"
+require "shellwords"
+
+# Package/Bundle extensions (default list)
+PACKAGE_EXTENSIONS = ['.app', '.bundle', '.framework', '.plugin', '.kext',
+                      '.key', '.pages', '.numbers', '.sketch',
+                      '.xcodeproj', '.playground', '.photoslibrary', '.xcassets']
+
+# Add custom extensions from environment variable
+custom_extensions = ENV['package_extensions'].to_s.strip
+unless custom_extensions.empty?
+  custom_exts = custom_extensions.split(',').map(&amp;:strip).reject(&amp;:empty?)
+  custom_exts.each do |ext|
+    ext = '.' + ext unless ext.start_with?('.')
+    PACKAGE_EXTENSIONS &lt;&lt; ext unless PACKAGE_EXTENSIONS.include?(ext)
+  end
+end
+
+def is_package?(path)
+  PACKAGE_EXTENSIONS.any? { |ext| path.end_with?(ext) }
+end
+
+def is_inside_package?(path)
+  PACKAGE_EXTENSIONS.any? { |ext| path.include?("#{ext}/") }
+end
+
+history_file = File.expand_path "#{ENV['alfred_workflow_data']}/fzf-search-history.txt"
+max_search_history = ENV["max_search_history"].to_i
+
+def prepend_line_to_file(file_path, line_to_prepend, max_search)
+  dirname = File.dirname(file_path)
+  unless File.directory?(dirname)
+    FileUtils.mkdir_p(dirname)
+  end
+
+  file_contents = File.readlines(file_path) if File.exist?(file_path)
+  file_contents = [] unless file_contents
+
+  if max_search &lt;= 0
+    file_contents = []
+  elsif file_contents.size &gt;= max_search
+    file_contents = file_contents[0...(max_search - 1)]
+    file_contents.unshift line_to_prepend
+  else
+    file_contents.unshift line_to_prepend
+  end
+
+  File.open(file_path, "w") do |file|
+    file.puts(file_contents) if file_contents
+  end
+end
+
+# Locate an executable, tolerating Alfred's minimal PATH.
+# Priority: user-specified env var -&gt; common Homebrew paths -&gt; login shell lookup -&gt; nil.
+def find_command(name, env_key)
+  user_path = ENV[env_key]
+  if user_path &amp;&amp; !user_path.empty?
+    expanded = File.expand_path(user_path)
+    return expanded if File.executable?(expanded)
+  end
+
+  candidates = [
+    "/opt/homebrew/bin/#{name}",  # Apple Silicon Homebrew
+    "/usr/local/bin/#{name}",     # Intel Homebrew
+    "/usr/bin/#{name}",           # System
+  ]
+  found = candidates.find { |p| File.executable?(p) }
+  return found if found
+
+  detected = `/bin/bash -lc 'command -v #{Shellwords.shellescape(name)}' 2&gt;/dev/null`.strip
+  return detected if !detected.empty? &amp;&amp; File.executable?(detected)
+
+  nil
+end
+
+fd_path       = find_command("fd",  "fd_path")
+fzf_path      = find_command("fzf", "fzf_path")
+
+missing_tools = []
+missing_tools &lt;&lt; "fd"  unless fd_path
+missing_tools &lt;&lt; "fzf" unless fzf_path
+unless missing_tools.empty?
+  tools   = missing_tools.join(" and ")
+  brew    = missing_tools.join(" ")
+  message = "#{tools} not found. Install via Homebrew (brew install #{brew}), or use Alfred Preferences &gt; Workflows &gt; Alfred Gallery &gt; Resolve Dependencies."
+  STDERR.puts message
+  print({
+    "items" =&gt; [{
+      "title"    =&gt; "#{tools} not installed",
+      "subtitle" =&gt; "Install via Homebrew: brew install #{brew} — or use Alfred's Resolve Dependencies",
+      "valid"    =&gt; false
+    }]
+  }.to_json)
+  exit 0
+end
+memorize      = ENV["memorize"].to_i == 1 ? true : false
+treat_packages_as_dirs = ENV["treat_packages_as_dirs"].to_i == 1 ? true : false
+
+search_paths  = ENV["search_home"] || ENV["search_path"]
+search_paths  = search_paths.split(/\s*;\s*/)
+search_paths = search_paths.map do |search_path|
+  path = File.expand_path(search_path)
+  File.exist?(path) ? path : nil
+end.compact.uniq
+
+fd_options       = ENV["fd_options"]      || ""
+fd_options_conf  = ENV["fd_options_conf"] || ""
+exclude_patterns    = ENV["exclude_patterns"]   || ""
+exclude_options  = exclude_patterns.split(/\s*;\s*/).reject(&amp;:empty?).map { |p| "--exclude #{Shellwords.shellescape(p)}" }.join(' ')
+num_candidates   = ENV["num_candidates"]  || "100"
+num_candidates  = num_candidates.to_i
+
+keys = ARGV.join(" ").gsub("　", " ").split(/\s+/)
+query = +""
+keys.each do |key|
+  if /\A(?:\^|\-)(?:d|dir|directory)\z/ =~ key
+    fd_options = " -p -t d"
+  elsif /\A(?:\^|\-)(?:f|file)\z/ =~ key
+    fd_options = " -p -t f"
+  else
+    query &lt;&lt; key + " "
+  end
+end
+
+query.strip!
+
+# Store original fd_options to determine search type
+search_type = fd_options.strip
+
+results = []
+
+# Build exclude patterns for packages when treat_packages_as_dirs is off
+unless treat_packages_as_dirs
+  # Exclude package contents
+  package_excludes = PACKAGE_EXTENSIONS.map { |ext| "--exclude '*#{ext}/*'" }.join(' ')
+  # Additionally exclude packages themselves when searching for directories
+  if search_type.include?('-t d')
+    package_excludes += ' ' + PACKAGE_EXTENSIONS.map { |ext| "--exclude '*#{ext}'" }.join(' ')
+  end
+else
+  package_excludes = ""
+end
+
+search_paths.each do |search_path|
+  results_all = `#{fd_path} . "#{search_path}" #{fd_options} #{package_excludes} #{exclude_options} #{fd_options_conf} 2&gt; /dev/null | #{fzf_path} -e --filter="#{query}" --print0`
+  results += results_all.split("\x00")[0...num_candidates]
+end
+
+# Post-process results when treat_packages_as_dirs is off
+unless treat_packages_as_dirs
+  if search_type.include?('-t d')
+    # Directory search: exclude packages
+    results.reject! { |r| is_package?(r) }
+  elsif search_type.include?('-t f')
+    # File search: add packages separately
+    search_paths.each do |search_path|
+      pkg_results = `#{fd_path} . "#{search_path}" -p -t d #{exclude_options} #{fd_options_conf} 2&gt; /dev/null | #{fzf_path} -e --filter="#{query}" --print0`
+      packages = pkg_results.split("\x00").select { |r| is_package?(r) }
+      results += packages
+    end
+    results = results[0...num_candidates]
+  end
+  # For default search (both files and dirs), packages are already included but their contents are excluded
+end
+
+items = []
+type = "file:skipcheck"
+
+if results.size &gt; 0
+  results.each do |result|
+    path_split = result.split(File::SEPARATOR)
+    title = File::SEPARATOR + path_split[-2 .. -1].join(File::SEPARATOR)
+    subtitle = path_split[0 ... -2].join(File::SEPARATOR)
+    item = {
+      "valid": true,
+      "type": type,
+      "title": title,
+      "subtitle": subtitle,
+      "arg": result,
+      "icon": {
+        "type": "fileicon",
+        "path": result
+      }
+    }
+    if memorize
+      # uid = Digest::MD5.hexdigest(result)
+      item["uid"] = result
+    end
+    items &lt;&lt; item
+  end
+  unless ENV["history_search"]
+    prepend_line_to_file(history_file, "#{Time.new} | #{query}", max_search_history)
+  end
+else
+  items &lt;&lt; {
+    "title": "No results found",
+    "valid": false
+  }
+end
+
+jsonout = {"items": items}.to_json 
+
+print jsonout
+
+</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Input search keys (space separated)</string>
+				<key>title</key>
+				<string>FZF Search {var:target}</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>259D4D63-7DA6-42E5-99A5-F20E276837C7</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>openwith</key>
+				<string></string>
+				<key>sourcefile</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>D5377AF7-4CB9-426E-A0E6-C4DB163F0203</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>006823D4-BB3C-4562-86B6-3F447113F12F</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{var:search_key}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>wait_message</key>
+					<string>The first search after a macOS startup might take a bit longer . . .</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>AA717B32-2B75-49DA-8592-0E8E892F13E1</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{query}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>false</string>
+						<key>outputlabel</key>
+						<string>called first time</string>
+						<key>uid</key>
+						<string>BCAA363E-FF3B-4B5A-87D6-E030AB0C1270</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>F22B198B-7717-459A-8E74-49AF69EF4144</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.transform</string>
+			<key>uid</key>
+			<string>EEC3AB57-821A-4731-B4BF-52D5C9911061</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>search_key</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>39E6D860-0B1E-4455-BB4C-DC593100A7BA</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>history_search</key>
+					<string>true</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>C1AC1BDB-11DC-4B77-9465-64AC697F5571</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{var:search_key}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>wait_message</key>
+					<string>Now searching . . .</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>687B768F-D0E6-47F8-AEA9-E85E5D5CB1CD</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>20492BCC-B690-462F-B83E-97C1BAD8BA30</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>fzf-edit-history</string>
+				<key>subtext</key>
+				<string>Work on fzf search history file</string>
+				<key>text</key>
+				<string>Edit FZF Search History</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>630BBCB5-1B8A-4367-81AA-84277D5A2C3E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string># frozen_string_literal: true
+
+require "fileutils"
+
+history_file = File.expand_path "#{ENV['alfred_workflow_data']}/fzf-search-history.txt"
+
+dirname = File.dirname(history_file)
+
+unless File.exist?(history_file)
+  unless File.directory?(dirname)
+    FileUtils.mkdir_p(dirname)
+  end
+  FileUtils.touch(history_file)
+end</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>04F31BBA-796D-44C6-9219-40D7F9A57FA1</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>jumpto</key>
+				<string>_popUpItemAction:</string>
+				<key>path</key>
+				<string>{const:alfred_workflow_data}/fzf-search-history.txt</string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.actioninalfred</string>
+			<key>uid</key>
+			<string>3EEDF265-20D8-451A-9A23-36BF14369A9C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<true/>
+				<key>variables</key>
+				<dict>
+					<key>fd_options</key>
+					<string>-p -t f -t d</string>
+					<key>target</key>
+					<string>(files and folders)</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>E955583B-5155-40B4-918E-4C13BAC0B095</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>fzf</string>
+				<key>subtext</key>
+				<string>Enter keywords and press ⏎ to search</string>
+				<key>text</key>
+				<string>FZF Search</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>E394B23D-5752-439F-9BBA-69B650EF76F3</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsmulti</key>
+				<integer>0</integer>
+				<key>filetypes</key>
+				<array>
+					<string>public.folder</string>
+				</array>
+				<key>name</key>
+				<string>FZF Search from Here</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.action</string>
+			<key>uid</key>
+			<string>04355CF0-DDB0-467C-BC01-7AD99A234DAC</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>search_home</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>C16ABD65-D706-4DC9-A84E-751005A2C29B</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.junction</string>
+			<key>uid</key>
+			<string>72963530-89B9-432D-BEFD-851E05C5F9A9</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<true/>
+				<key>variables</key>
+				<dict>
+					<key>fd_options</key>
+					<string>-p -t f</string>
+					<key>target</key>
+					<string>(files)</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>80D61B0F-F87F-4B96-81DD-40B8192BA81F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<true/>
+				<key>variables</key>
+				<dict>
+					<key>fd_options</key>
+					<string>-p -t d</string>
+					<key>target</key>
+					<string>(folders)</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>D1DEEC3B-9BEE-423A-AF8F-BB79D6616D83</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>89411B08-B4CF-46D4-AE76-85DC1E10FF3F</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>404E3A3E-9A22-46D5-BB10-388BF451EA08</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># fzf Alfred Workflow
+
+![](icon-mini.png)
+
+An Alfred workflow fo fuzzy find files/directories using fzf and fd.
+
+Check out the [README](https://github.com/yohasebe/fzf-alfred-workflow) on the GitHub repository of this workflow.</string>
+	<key>uidata</key>
+	<dict>
+		<key>006823D4-BB3C-4562-86B6-3F447113F12F</key>
+		<dict>
+			<key>note</key>
+			<string>fzf history search hotkey</string>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>380</real>
+		</dict>
+		<key>04355CF0-DDB0-467C-BC01-7AD99A234DAC</key>
+		<dict>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>765</real>
+		</dict>
+		<key>04F31BBA-796D-44C6-9219-40D7F9A57FA1</key>
+		<dict>
+			<key>xpos</key>
+			<real>355</real>
+			<key>ypos</key>
+			<real>565</real>
+		</dict>
+		<key>11793B10-1541-4944-B0A9-0ABC8A1CAADB</key>
+		<dict>
+			<key>note</key>
+			<string>Open parent folder</string>
+			<key>xpos</key>
+			<real>1525</real>
+			<key>ypos</key>
+			<real>340</real>
+		</dict>
+		<key>1AE6F3E6-E6EC-40DD-B69C-D3657B95003A</key>
+		<dict>
+			<key>note</key>
+			<string>Folders</string>
+			<key>xpos</key>
+			<real>275</real>
+			<key>ypos</key>
+			<real>145</real>
+		</dict>
+		<key>20492BCC-B690-462F-B83E-97C1BAD8BA30</key>
+		<dict>
+			<key>note</key>
+			<string>fzf history edit hotkey</string>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>565</real>
+		</dict>
+		<key>259D4D63-7DA6-42E5-99A5-F20E276837C7</key>
+		<dict>
+			<key>xpos</key>
+			<real>1310</real>
+			<key>ypos</key>
+			<real>380</real>
+		</dict>
+		<key>39E6D860-0B1E-4455-BB4C-DC593100A7BA</key>
+		<dict>
+			<key>xpos</key>
+			<real>830</real>
+			<key>ypos</key>
+			<real>410</real>
+		</dict>
+		<key>3EEDF265-20D8-451A-9A23-36BF14369A9C</key>
+		<dict>
+			<key>xpos</key>
+			<real>525</real>
+			<key>ypos</key>
+			<real>565</real>
+		</dict>
+		<key>404E3A3E-9A22-46D5-BB10-388BF451EA08</key>
+		<dict>
+			<key>note</key>
+			<string>fzf workflow activation hotkey (only folders)</string>
+			<key>xpos</key>
+			<real>275</real>
+			<key>ypos</key>
+			<real>1025</real>
+		</dict>
+		<key>4907DDAE-992E-44DF-9E2B-9B1E0B57B2AB</key>
+		<dict>
+			<key>note</key>
+			<string>fzf-cd hotkey</string>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>215</real>
+		</dict>
+		<key>506A996E-5844-4D93-8FCB-54BE74BD9950</key>
+		<dict>
+			<key>xpos</key>
+			<real>890</real>
+			<key>ypos</key>
+			<real>380</real>
+		</dict>
+		<key>5E1FDF04-C49F-4E17-A831-5AABB827BC41</key>
+		<dict>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>50</real>
+		</dict>
+		<key>630BBCB5-1B8A-4367-81AA-84277D5A2C3E</key>
+		<dict>
+			<key>xpos</key>
+			<real>185</real>
+			<key>ypos</key>
+			<real>565</real>
+		</dict>
+		<key>687B768F-D0E6-47F8-AEA9-E85E5D5CB1CD</key>
+		<dict>
+			<key>xpos</key>
+			<real>1205</real>
+			<key>ypos</key>
+			<real>435</real>
+		</dict>
+		<key>70117868-EDD8-4B93-B458-DD056356164E</key>
+		<dict>
+			<key>note</key>
+			<string>Files and Folders</string>
+			<key>xpos</key>
+			<real>275</real>
+			<key>ypos</key>
+			<real>15</real>
+		</dict>
+		<key>72963530-89B9-432D-BEFD-851E05C5F9A9</key>
+		<dict>
+			<key>xpos</key>
+			<real>620</real>
+			<key>ypos</key>
+			<real>795</real>
+		</dict>
+		<key>80D61B0F-F87F-4B96-81DD-40B8192BA81F</key>
+		<dict>
+			<key>note</key>
+			<string>Files</string>
+			<key>xpos</key>
+			<real>500</real>
+			<key>ypos</key>
+			<real>795</real>
+		</dict>
+		<key>89411B08-B4CF-46D4-AE76-85DC1E10FF3F</key>
+		<dict>
+			<key>note</key>
+			<string>fzf workflow activation hotkey</string>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>960</real>
+		</dict>
+		<key>9940A94C-59B9-46C8-8BDF-7D35747F9067</key>
+		<dict>
+			<key>xpos</key>
+			<real>275</real>
+			<key>ypos</key>
+			<real>245</real>
+		</dict>
+		<key>9C115F60-CC19-498C-9FF3-14E9F22875E8</key>
+		<dict>
+			<key>xpos</key>
+			<real>415</real>
+			<key>ypos</key>
+			<real>80</real>
+		</dict>
+		<key>AA717B32-2B75-49DA-8592-0E8E892F13E1</key>
+		<dict>
+			<key>xpos</key>
+			<real>1205</real>
+			<key>ypos</key>
+			<real>385</real>
+		</dict>
+		<key>C16ABD65-D706-4DC9-A84E-751005A2C29B</key>
+		<dict>
+			<key>xpos</key>
+			<real>190</real>
+			<key>ypos</key>
+			<real>795</real>
+		</dict>
+		<key>C1AC1BDB-11DC-4B77-9465-64AC697F5571</key>
+		<dict>
+			<key>xpos</key>
+			<real>495</real>
+			<key>ypos</key>
+			<real>410</real>
+		</dict>
+		<key>CABC4E80-CAAF-4DF0-9511-998556025F97</key>
+		<dict>
+			<key>note</key>
+			<string>Files</string>
+			<key>xpos</key>
+			<real>275</real>
+			<key>ypos</key>
+			<real>80</real>
+		</dict>
+		<key>D1DEEC3B-9BEE-423A-AF8F-BB79D6616D83</key>
+		<dict>
+			<key>note</key>
+			<string>Folders</string>
+			<key>xpos</key>
+			<real>500</real>
+			<key>ypos</key>
+			<real>870</real>
+		</dict>
+		<key>D5377AF7-4CB9-426E-A0E6-C4DB163F0203</key>
+		<dict>
+			<key>xpos</key>
+			<real>1660</real>
+			<key>ypos</key>
+			<real>380</real>
+		</dict>
+		<key>E394B23D-5752-439F-9BBA-69B650EF76F3</key>
+		<dict>
+			<key>xpos</key>
+			<real>270</real>
+			<key>ypos</key>
+			<real>765</real>
+		</dict>
+		<key>E62785EE-B03C-40BE-AAC1-A07D76E187A4</key>
+		<dict>
+			<key>xpos</key>
+			<real>275</real>
+			<key>ypos</key>
+			<real>380</real>
+		</dict>
+		<key>E955583B-5155-40B4-918E-4C13BAC0B095</key>
+		<dict>
+			<key>note</key>
+			<string>Files and Folders</string>
+			<key>xpos</key>
+			<real>500</real>
+			<key>ypos</key>
+			<real>720</real>
+		</dict>
+		<key>EEC3AB57-821A-4731-B4BF-52D5C9911061</key>
+		<dict>
+			<key>xpos</key>
+			<real>755</real>
+			<key>ypos</key>
+			<real>410</real>
+		</dict>
+		<key>F22B198B-7717-459A-8E74-49AF69EF4144</key>
+		<dict>
+			<key>xpos</key>
+			<real>1060</real>
+			<key>ypos</key>
+			<real>400</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>100</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Number of candidate files/directories shown in Alfred [Default: 100]</string>
+			<key>label</key>
+			<string>Num of candidates</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>num_candidates</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>~</string>
+				<key>filtermode</key>
+				<integer>1</integer>
+				<key>placeholder</key>
+				<string>Click →</string>
+				<key>required</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Directory (or directories) for recursive search. Multiple paths may be specified, separated by semicolons. [Default: ~]
+
+NOTE: If a home directory is specified, ~/Library will be ignored for better performance; to search within a cloud storage folder such as Dropbox or OneDrive, specify ~/Library/CloudStorage/. (e.g. ~; ~/Library/CloudStorage/)</string>
+			<key>label</key>
+			<string>Search Path(s)</string>
+			<key>type</key>
+			<string>filepicker</string>
+			<key>variable</key>
+			<string>search_path</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<false/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string>Check to have Alfred manage order</string>
+			</dict>
+			<key>description</key>
+			<string>If checked, Alfred will manage the order of items according to usage.  [default = unchecked]</string>
+			<key>label</key>
+			<string>Momorize Order</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>memorize</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>1000</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Maximum number of past search history retained. [default = 1000]</string>
+			<key>label</key>
+			<string>Max Num of Past Searches</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>max_search_history</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<false/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string>Treat packages/bundles as directories</string>
+			</dict>
+			<key>description</key>
+			<string>If checked, packages/bundles (.app, .graffle, .key, .pages, etc.) will be treated as directories and their contents will be searchable. If unchecked, they will be treated as files and their contents will be excluded from search. [default = unchecked]</string>
+			<key>label</key>
+			<string>Treat Packages as Directories</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>treat_packages_as_dirs</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>node_modules;.git;</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Folder/file name patterns to exclude from search results. Separate multiple entries with semicolons. These are passed as --exclude options to fd and apply wherever they appear in the search tree. [default: node_modules;.git;]</string>
+			<key>label</key>
+			<string>Exclude Pattern(s)</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>exclude_patterns</string>
+		</dict>
+	</array>
+	<key>variables</key>
+	<dict>
+		<key>fd_options_conf</key>
+		<string>--exclude Library</string>
+		<key>github_repo</key>
+		<string>https://github.com/yohasebe/fzf-alfred-workflow</string>
+		<key>package_extensions</key>
+		<string></string>
+	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.9.2</string>
+	<key>webaddress</key>
+	<string>https://github.com/yohasebe/fzf-alfred-workflow</string>
+</dict>
+</plist>
