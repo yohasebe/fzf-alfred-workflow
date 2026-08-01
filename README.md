@@ -138,6 +138,17 @@ Past searches are listed by the `fzf-history` command below, which is where all 
 
 The `fzf-history` command reads this file and allows you to select one of your previous searches and repeat it. Selecting an entry runs that search straight away. Repeated searches are collapsed into a single entry showing when you last made it, so a history file written by an earlier version, which recorded every keystroke, still reads as a list of searches.
 
+### Cleaning up a history file from an earlier version
+
+Versions before 1.11.0 recorded the query on every keystroke, so each search left the fragments typed on the way to it in the file. `fzf-history` hides exact repeats, but the fragments remain. To remove them from the file itself:
+
+```shell
+ruby tools/prune-search-history.rb            # show what would be removed
+ruby tools/prune-search-history.rb --apply    # rewrite the file
+```
+
+A line is treated as a fragment when a search recorded within a minute of it is one of its prefixes, or is a prefix of it. The time limit is what keeps `budget` and `budget 2024` searched hours apart as two searches, while the same pair typed a second apart is one. The original file is copied to `fzf-search-history.txt.bak-<timestamp>` before anything is written.
+
 ### Using user-specified hotkey
 
 Setup: Features → Workflows → fzf-alfred-workflow → Double click "fzf history search hotkey".
