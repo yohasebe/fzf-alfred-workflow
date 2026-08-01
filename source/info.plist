@@ -88,21 +88,21 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>11793B10-1541-4944-B0A9-0ABC8A1CAADB</string>
-				<key>modifiers</key>
-				<integer>131072</integer>
-				<key>modifiersubtext</key>
-				<string>Open enclosing folder</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
 				<string>B3E9C7D4-5A26-4F81-9E0C-7D4A1F6B2C58</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>11793B10-1541-4944-B0A9-0ABC8A1CAADB</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Open enclosing folder</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -658,6 +658,64 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string># frozen_string_literal: true
+
+require "fileutils"
+
+# Runs when a result is chosen, not while the query is being typed. The script
+# filter re-runs on every keystroke, so recording there stored every prefix of
+# every search whether or not anything came of it. Recording here keeps the
+# searches that actually led somewhere.
+path   = ARGV[0].to_s
+search = ENV["fzf_search_key"].to_s.strip
+max_search_history = ENV["max_search_history"].to_i
+
+unless search.empty?
+  file = File.expand_path "#{ENV['alfred_workflow_data']}/fzf-search-history.txt"
+  begin
+    dirname = File.dirname(file)
+    FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
+
+    entries = File.exist?(file) ? File.readlines(file) : []
+    # Repeating a search moves it back to the top rather than adding another
+    # copy: this is a list of searches, not of the times each one was run.
+    entries.reject! do |line|
+      _, recorded = line.split("|", 2)
+      recorded &amp;&amp; recorded.strip == search
+    end
+    entries.unshift("#{Time.new} | #{search}\n")
+    entries = max_search_history &gt; 0 ? entries.first(max_search_history) : []
+
+    File.open(file, "w") { |f| f.puts(entries) }
+  rescue SystemCallError =&gt; e
+    STDERR.puts "fzf workflow: could not record history (#{e.message})"
+  end
+end
+
+# Pass the path through unchanged so the next action still receives it.
+print path</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>B3E9C7D4-5A26-4F81-9E0C-7D4A1F6B2C58</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>matchmode</key>
 				<integer>1</integer>
 				<key>matchstring</key>
@@ -673,54 +731,6 @@
 			<string>alfred.workflow.utility.replace</string>
 			<key>uid</key>
 			<string>11793B10-1541-4944-B0A9-0ABC8A1CAADB</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>function check_called_post_startup() {
-  mkdir -p "${alfred_workflow_data}"
-
-  local check_file="${alfred_workflow_data}/check_called_post_startup"
-
-  local boot_time=$(sysctl -n kern.boottime | awk '{print $4}' | sed 's/,//')
-
-  if [[ -f "$check_file" ]]; then
-    local file_mod_time=$(stat -f "%m" "$check_file")
-
-    if (( file_mod_time &gt; boot_time )); then
-      echo -n "true"
-      return 0
-    else
-      touch "$check_file"
-      echo -n "false"
-      return 1
-    fi
-  else
-    touch "$check_file"
-    echo -n "false"
-    return 1
-  fi
-}
-
-check_called_post_startup</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>11</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>506A996E-5844-4D93-8FCB-54BE74BD9950</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -819,6 +829,21 @@ print jsonout</string>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>E62785EE-B03C-40BE-AAC1-A07D76E187A4</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>openwith</key>
+				<string></string>
+				<key>sourcefile</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>D5377AF7-4CB9-426E-A0E6-C4DB163F0203</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -1182,97 +1207,45 @@ print jsonout
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string># frozen_string_literal: true
+				<string>function check_called_post_startup() {
+  mkdir -p "${alfred_workflow_data}"
 
-require "fileutils"
+  local check_file="${alfred_workflow_data}/check_called_post_startup"
 
-# Runs when a result is chosen, not while the query is being typed. The script
-# filter re-runs on every keystroke, so recording there stored every prefix of
-# every search whether or not anything came of it. Recording here keeps the
-# searches that actually led somewhere.
-path   = ARGV[0].to_s
-search = ENV["fzf_search_key"].to_s.strip
-max_search_history = ENV["max_search_history"].to_i
+  local boot_time=$(sysctl -n kern.boottime | awk '{print $4}' | sed 's/,//')
 
-unless search.empty?
-  file = File.expand_path "#{ENV['alfred_workflow_data']}/fzf-search-history.txt"
-  begin
-    dirname = File.dirname(file)
-    FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
+  if [[ -f "$check_file" ]]; then
+    local file_mod_time=$(stat -f "%m" "$check_file")
 
-    entries = File.exist?(file) ? File.readlines(file) : []
-    # Repeating a search moves it back to the top rather than adding another
-    # copy: this is a list of searches, not of the times each one was run.
-    entries.reject! do |line|
-      _, recorded = line.split("|", 2)
-      recorded &amp;&amp; recorded.strip == search
-    end
-    entries.unshift("#{Time.new} | #{search}\n")
-    entries = max_search_history &gt; 0 ? entries.first(max_search_history) : []
+    if (( file_mod_time &gt; boot_time )); then
+      echo -n "true"
+      return 0
+    else
+      touch "$check_file"
+      echo -n "false"
+      return 1
+    fi
+  else
+    touch "$check_file"
+    echo -n "false"
+    return 1
+  fi
+}
 
-    File.open(file, "w") { |f| f.puts(entries) }
-  rescue SystemCallError =&gt; e
-    STDERR.puts "fzf workflow: could not record history (#{e.message})"
-  end
-end
-
-# Pass the path through unchanged so the next action still receives it.
-print path</string>
+check_called_post_startup</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
-				<integer>2</integer>
+				<integer>11</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>B3E9C7D4-5A26-4F81-9E0C-7D4A1F6B2C58</string>
+			<string>506A996E-5844-4D93-8FCB-54BE74BD9950</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>type</key>
-			<string>alfred.workflow.action.revealfile</string>
-			<key>uid</key>
-			<string>C9F2A5B1-4E37-4D62-8A90-1B5C3E7F6D24</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>D4A81C36-7B92-45E0-A1F8-2C6B9D0E5A73</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>openwith</key>
-				<string></string>
-				<key>sourcefile</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openfile</string>
-			<key>uid</key>
-			<string>D5377AF7-4CB9-426E-A0E6-C4DB163F0203</string>
-			<key>version</key>
-			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1358,19 +1331,6 @@ print path</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.transform</string>
-			<key>uid</key>
-			<string>EEC3AB57-821A-4731-B4BF-52D5C9911061</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argument</key>
 				<string></string>
 				<key>passthroughargument</key>
@@ -1411,6 +1371,19 @@ print path</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.transform</string>
+			<key>uid</key>
+			<string>EEC3AB57-821A-4731-B4BF-52D5C9911061</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argument</key>
 				<string>{var:search_key}</string>
 				<key>passthroughargument</key>
@@ -1425,6 +1398,55 @@ print path</string>
 			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
 			<string>687B768F-D0E6-47F8-AEA9-E85E5D5CB1CD</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>path</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.revealfile</string>
+			<key>uid</key>
+			<string>C9F2A5B1-4E37-4D62-8A90-1B5C3E7F6D24</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>D4A81C36-7B92-45E0-A1F8-2C6B9D0E5A73</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>jumpto</key>
+				<string>_popUpItemAction:</string>
+				<key>path</key>
+				<string>{const:alfred_workflow_data}/fzf-search-history.txt</string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.actioninalfred</string>
+			<key>uid</key>
+			<string>3EEDF265-20D8-451A-9A23-36BF14369A9C</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1517,23 +1539,6 @@ end</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>jumpto</key>
-				<string>_popUpItemAction:</string>
-				<key>path</key>
-				<string>{const:alfred_workflow_data}/fzf-search-history.txt</string>
-				<key>type</key>
-				<integer>1</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.actioninalfred</string>
-			<key>uid</key>
-			<string>3EEDF265-20D8-451A-9A23-36BF14369A9C</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argument</key>
 				<string>{query}</string>
 				<key>passthroughargument</key>
@@ -1556,6 +1561,25 @@ end</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>acceptsmulti</key>
+				<integer>0</integer>
+				<key>filetypes</key>
+				<array>
+					<string>public.folder</string>
+				</array>
+				<key>name</key>
+				<string>FZF Search from Here</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.action</string>
+			<key>uid</key>
+			<string>04355CF0-DDB0-467C-BC01-7AD99A234DAC</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
@@ -1571,25 +1595,6 @@ end</string>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>E394B23D-5752-439F-9BBA-69B650EF76F3</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>acceptsmulti</key>
-				<integer>0</integer>
-				<key>filetypes</key>
-				<array>
-					<string>public.folder</string>
-				</array>
-				<key>name</key>
-				<string>FZF Search from Here</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.action</string>
-			<key>uid</key>
-			<string>04355CF0-DDB0-467C-BC01-7AD99A234DAC</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1915,24 +1920,6 @@ Check out the [README](https://github.com/yohasebe/fzf-alfred-workflow) on the G
 			<key>ypos</key>
 			<real>270</real>
 		</dict>
-		<key>C9F2A5B1-4E37-4D62-8A90-1B5C3E7F6D24</key>
-		<dict>
-			<key>note</key>
-			<string>⌘ Reveal in Finder</string>
-			<key>xpos</key>
-			<real>1525</real>
-			<key>ypos</key>
-			<real>475</real>
-		</dict>
-		<key>D4A81C36-7B92-45E0-A1F8-2C6B9D0E5A73</key>
-		<dict>
-			<key>note</key>
-			<string>⌃ Copy path</string>
-			<key>xpos</key>
-			<real>1525</real>
-			<key>ypos</key>
-			<real>560</real>
-		</dict>
 		<key>C16ABD65-D706-4DC9-A84E-751005A2C29B</key>
 		<dict>
 			<key>xpos</key>
@@ -1946,6 +1933,15 @@ Check out the [README](https://github.com/yohasebe/fzf-alfred-workflow) on the G
 			<real>495</real>
 			<key>ypos</key>
 			<real>410</real>
+		</dict>
+		<key>C9F2A5B1-4E37-4D62-8A90-1B5C3E7F6D24</key>
+		<dict>
+			<key>note</key>
+			<string>⌘ Reveal in Finder</string>
+			<key>xpos</key>
+			<real>1525</real>
+			<key>ypos</key>
+			<real>475</real>
 		</dict>
 		<key>CABC4E80-CAAF-4DF0-9511-998556025F97</key>
 		<dict>
@@ -1964,6 +1960,15 @@ Check out the [README](https://github.com/yohasebe/fzf-alfred-workflow) on the G
 			<real>500</real>
 			<key>ypos</key>
 			<real>870</real>
+		</dict>
+		<key>D4A81C36-7B92-45E0-A1F8-2C6B9D0E5A73</key>
+		<dict>
+			<key>note</key>
+			<string>⌃ Copy path</string>
+			<key>xpos</key>
+			<real>1525</real>
+			<key>ypos</key>
+			<real>560</real>
 		</dict>
 		<key>D5377AF7-4CB9-426E-A0E6-C4DB163F0203</key>
 		<dict>
