@@ -1,6 +1,6 @@
 # <span><img src='./files/fzf-alfred-icon.png' style='height:48px;'/></span> fzf-alfred-workflow
 
-An [Alfred](https://www.alfredapp.com/) workflow fo fuzzy find files/directories using [fzf](https://github.com/junegunn/fzf) and [fd](https://github.com/sharkdp/fd).
+An [Alfred](https://www.alfredapp.com/) workflow to fuzzy find files/directories using [fzf](https://github.com/junegunn/fzf) and [fd](https://github.com/sharkdp/fd).
 
 <img src='./files/fzf-alfred-screenshot.png' style='width:500px;'/>
 
@@ -74,8 +74,8 @@ Set values to the following options in `User Configuration` (Alfred 5):
 | Setting                       | Explanation                                                                        |
 | ----------------------------  | ---------------------------------------------------------------------------------- |
 | Num of candidates             | Number of candidate files/directories shown in Alfred (default: 100)               |
-| Search path(s)                | Directory from which recursive fzf searches are conducted (default: `~`) __\*__    |
-| Memorize order                | If checked or set `true`, Alfred will manage the order of items according to usage |
+| Search Path(s)                | Directory from which recursive fzf searches are conducted (default: `~`) __\*__    |
+| Memorize Order                | If checked or set `true`, Alfred will manage the order of items according to usage |
 | Max Num of Past Searches      | Maximum number of past search history retained (default: 1000)                      |
 | Exclude Pattern(s)            | Folder/file name patterns to exclude from search, separated by semicolons (default: `node_modules;.git;`) __\*\*\*__ |
 | Treat Packages as Directories | If checked, packages/bundles (.app, .key, .pages, etc.) are treated as directories and their contents are searchable (default: unchecked) __\*\*__ |
@@ -114,7 +114,7 @@ Alfred's own preview key also works on a result, so you can look inside a file w
 
 Setup: Features → Default Results → Setup fallback results → Add Workflow Trigger "FZF Search"
 
-Type in search keys and select "FZF Search"
+Type in search keys and select "FZF Search". Holding ⌘ while selecting it searches files only, and holding ⌥ searches directories only.
 
 ### Folder action
 
@@ -235,6 +235,8 @@ You can change this option by setting the environment variable `fd_options_conf`
 <img src='./files/fd_options_conf.png' style='width:700px;'/>
 
 Note that these options are appended internally with the options automatically specified by this workflow such as `--type f` or `--type d` to search files or directories only.
+
+`fd` is run directly rather than through a shell, so this setting is split into arguments the way a shell would split it, but no shell expansion happens afterwards: a leading `~` is expanded for you, while glob characters are passed to `fd` as they are written rather than being expanded against your files first. This is usually what you want for `--exclude` patterns.
 
 > **Tip:** If you only need to exclude specific folder names (e.g., `node_modules`, `.git`), use the `Exclude Pattern(s)` setting in the Configuration Builder instead. `fd_options_conf` is best suited for non-exclude options such as `--hidden` or `--case-sensitive`.
 

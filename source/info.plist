@@ -1729,7 +1729,7 @@ end</string>
 
 ![](icon-mini.png)
 
-An Alfred workflow fo fuzzy find files/directories using fzf and fd.
+An Alfred workflow to fuzzy find files/directories using fzf and fd.
 
 Check out the [README](https://github.com/yohasebe/fzf-alfred-workflow) on the GitHub repository of this workflow.</string>
 	<key>uidata</key>
@@ -2069,7 +2069,7 @@ NOTE: If a home directory is specified, ~/Library will be ignored for better per
 			<key>description</key>
 			<string>If checked, Alfred will manage the order of items according to usage.  [default = unchecked]</string>
 			<key>label</key>
-			<string>Momorize Order</string>
+			<string>Memorize Order</string>
 			<key>type</key>
 			<string>checkbox</string>
 			<key>variable</key>
