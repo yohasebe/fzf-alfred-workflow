@@ -247,9 +247,7 @@ Use `^d` or `-d` directive to search directories only.
 
 You can set options to the `fd` command that searches for files and folders to be passed to `fzf`. The default option is `--exclude Library` to exclude the `Library` directories in the current search path, which helps speed up the search for users who do not need to search in the `Library` directories.
 
-You can change this option by setting the environment variable `fd_options_conf` in the workflow configuration. For example, if you set the environment variable `fd_options_conf` to `--hidden --case-sensitive`, as shown below, hidden files such as dot files will be included in the search, and the search will be case-sensitive (and `Library` directories will not be excluded anymore).
-
-<img src='./files/fd_options_conf.png' style='width:700px;'/>
+You can change this option by setting the environment variable `fd_options_conf` in the workflow configuration. For example, setting `fd_options_conf` to `--hidden --case-sensitive` includes hidden files such as dot files in the search and makes the search case-sensitive (and `Library` directories will not be excluded anymore).
 
 Note that these options are appended internally with the options automatically specified by this workflow such as `--type f` or `--type d` to search files or directories only.
 
